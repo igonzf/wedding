@@ -10,7 +10,6 @@ class InvitationPage extends StatelessWidget {
     final screenHeight = MediaQuery.of(context).size.height;
     return Scaffold(
       body: CustomScrollView(
-        shrinkWrap: true,
         slivers: [
           SliverToBoxAdapter(
               child: Container(
@@ -22,45 +21,45 @@ class InvitationPage extends StatelessWidget {
                 fit: BoxFit.cover,
               ),
               Center(
-                  child: Column(mainAxisSize: MainAxisSize.max, children: [
+                  child: Column(children: [
                 Text(
                   'NOS CASAMOS',
                   style: GoogleFonts.cinzel(
-                      fontSize: screenHeight * 0.028,
+                      fontSize: screenHeight * 0.03,
                       letterSpacing: 4.0,
                       fontWeight: FontWeight.w500,
-                      height: 5.0),
+                      height: screenHeight * 0.0095),
                   textAlign: TextAlign.center,
                 ),
                 Text(
                   'Bárbara',
                   style: GoogleFonts.cormorantGaramond(
-                      fontSize: screenHeight * 0.08,
+                      fontSize: screenHeight * 0.1,
                       fontWeight: FontWeight.w400),
                   textAlign: TextAlign.center,
                 ),
                 Text(
                   'y',
                   style: GoogleFonts.cormorantGaramond(
-                      fontSize: screenHeight * 0.08,
+                      fontSize: screenHeight * 0.1,
                       fontWeight: FontWeight.w400,
-                      height: 0.8),
+                      height: screenHeight * 0.001),
                   textAlign: TextAlign.center,
                 ),
                 Text(
                   'Santi',
                   style: GoogleFonts.cormorantGaramond(
-                      fontSize: screenHeight * 0.08,
+                      fontSize: screenHeight * 0.1,
                       fontWeight: FontWeight.w400),
                   textAlign: TextAlign.center,
                 ),
                 Text(
                   '22 DE JUNIO DE 2024',
                   style: GoogleFonts.cinzel(
-                      fontSize: screenHeight * 0.028,
+                      fontSize: screenHeight * 0.03,
                       letterSpacing: 4.0,
                       fontWeight: FontWeight.w500,
-                      height: 3.0),
+                      height: screenHeight * 0.005),
                   maxLines: 1,
                   textAlign: TextAlign.center,
                 ),
