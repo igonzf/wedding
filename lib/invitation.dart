@@ -28,20 +28,20 @@ class InvitationPage extends StatelessWidget {
                       fontSize: screenHeight * 0.03,
                       letterSpacing: 4.0,
                       fontWeight: FontWeight.w500,
-                      height: screenHeight * 0.0095),
+                      height: screenHeight * 0.01),
                   textAlign: TextAlign.center,
                 ),
                 Text(
                   'Bárbara',
                   style: GoogleFonts.cormorantGaramond(
-                      fontSize: screenHeight * 0.1,
+                      fontSize: screenHeight * 0.12,
                       fontWeight: FontWeight.w400),
                   textAlign: TextAlign.center,
                 ),
                 Text(
                   'y',
                   style: GoogleFonts.cormorantGaramond(
-                      fontSize: screenHeight * 0.1,
+                      fontSize: screenHeight * 0.12,
                       fontWeight: FontWeight.w400,
                       height: screenHeight * 0.001),
                   textAlign: TextAlign.center,
@@ -49,7 +49,7 @@ class InvitationPage extends StatelessWidget {
                 Text(
                   'Santi',
                   style: GoogleFonts.cormorantGaramond(
-                      fontSize: screenHeight * 0.1,
+                      fontSize: screenHeight * 0.12,
                       fontWeight: FontWeight.w400),
                   textAlign: TextAlign.center,
                 ),
@@ -59,7 +59,7 @@ class InvitationPage extends StatelessWidget {
                       fontSize: screenHeight * 0.03,
                       letterSpacing: 4.0,
                       fontWeight: FontWeight.w500,
-                      height: screenHeight * 0.005),
+                      height: screenHeight * 0.006),
                   maxLines: 1,
                   textAlign: TextAlign.center,
                 ),
