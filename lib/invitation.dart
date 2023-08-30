@@ -7,24 +7,26 @@ class InvitationPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final screenHeight = MediaQuery.of(context).size.height;
     return Scaffold(
       body: CustomScrollView(
+        shrinkWrap: true,
         slivers: [
           SliverToBoxAdapter(
               child: Container(
-            height: 800.0,
+            height: screenHeight,
             child: Stack(children: <Widget>[
               Image.asset(
-                'assets/nombrebackground.jpg',
+                'assets/nombrebackground2.jpg',
                 width: double.infinity,
                 fit: BoxFit.cover,
               ),
               Center(
-                  child: Column(children: [
+                  child: Column(mainAxisSize: MainAxisSize.max, children: [
                 Text(
                   'NOS CASAMOS',
                   style: GoogleFonts.cinzel(
-                      fontSize: 35,
+                      fontSize: screenHeight * 0.028,
                       letterSpacing: 4.0,
                       fontWeight: FontWeight.w500,
                       height: 5.0),
@@ -33,28 +35,33 @@ class InvitationPage extends StatelessWidget {
                 Text(
                   'Bárbara',
                   style: GoogleFonts.cormorantGaramond(
-                      fontSize: 100, fontWeight: FontWeight.w400),
+                      fontSize: screenHeight * 0.08,
+                      fontWeight: FontWeight.w400),
                   textAlign: TextAlign.center,
                 ),
                 Text(
                   'y',
                   style: GoogleFonts.cormorantGaramond(
-                      fontSize: 100, fontWeight: FontWeight.w400),
+                      fontSize: screenHeight * 0.08,
+                      fontWeight: FontWeight.w400,
+                      height: 0.8),
                   textAlign: TextAlign.center,
                 ),
                 Text(
                   'Santi',
                   style: GoogleFonts.cormorantGaramond(
-                      fontSize: 100, fontWeight: FontWeight.w400),
+                      fontSize: screenHeight * 0.08,
+                      fontWeight: FontWeight.w400),
                   textAlign: TextAlign.center,
                 ),
                 Text(
                   '22 DE JUNIO DE 2024',
                   style: GoogleFonts.cinzel(
-                      fontSize: 35,
+                      fontSize: screenHeight * 0.028,
                       letterSpacing: 4.0,
                       fontWeight: FontWeight.w500,
                       height: 3.0),
+                  maxLines: 1,
                   textAlign: TextAlign.center,
                 ),
               ])),
