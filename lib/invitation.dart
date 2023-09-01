@@ -34,6 +34,7 @@ class _InvitationPageState extends State<InvitationPage> {
   @override
   Widget build(BuildContext context) {
     final screenHeight = MediaQuery.of(context).size.height;
+    final screenWidth = MediaQuery.of(context).size.width;
     return Scaffold(
       body: CustomScrollView(
         slivers: [
@@ -101,13 +102,14 @@ class _InvitationPageState extends State<InvitationPage> {
           SliverToBoxAdapter(
             child: Container(
               height: screenHeight * 0.6,
+              width: screenWidth,
               child: Center(
                   child: Column(
                 children: [
                   Spacer(),
                   Text('Faltan',
                       style: GoogleFonts.cormorantGaramond(
-                          fontSize: screenHeight * 0.08,
+                          fontSize: screenHeight * 0.05,
                           fontWeight: FontWeight.w400),
                       textAlign: TextAlign.center),
                   Row(
@@ -117,16 +119,16 @@ class _InvitationPageState extends State<InvitationPage> {
                         children: [
                           Text(_timeUntil[0].toString(),
                               style: GoogleFonts.cormorantGaramond(
-                                  fontSize: screenHeight * 0.12,
+                                  fontSize: screenHeight * 0.07,
                                   fontWeight: FontWeight.w400),
                               textAlign: TextAlign.center),
                           SizedBox(
                             child: Text("Días",
                                 style: GoogleFonts.cormorantGaramond(
-                                    fontSize: screenHeight * 0.04,
+                                    fontSize: screenHeight * 0.025,
                                     fontWeight: FontWeight.w400),
                                 textAlign: TextAlign.center),
-                            width: 160.0,
+                            width: screenWidth * 0.22,
                           )
                         ],
                       ),
@@ -134,16 +136,16 @@ class _InvitationPageState extends State<InvitationPage> {
                         children: [
                           Text(_timeUntil[1].toString(),
                               style: GoogleFonts.cormorantGaramond(
-                                  fontSize: screenHeight * 0.12,
+                                  fontSize: screenHeight * 0.07,
                                   fontWeight: FontWeight.w400),
                               textAlign: TextAlign.center),
                           SizedBox(
                             child: Text("Horas",
                                 style: GoogleFonts.cormorantGaramond(
-                                    fontSize: screenHeight * 0.04,
+                                    fontSize: screenHeight * 0.025,
                                     fontWeight: FontWeight.w400),
                                 textAlign: TextAlign.center),
-                            width: 160.0,
+                            width: screenWidth * 0.22,
                           )
                         ],
                       ),
@@ -151,16 +153,16 @@ class _InvitationPageState extends State<InvitationPage> {
                         children: [
                           Text(_timeUntil[2].toString(),
                               style: GoogleFonts.cormorantGaramond(
-                                  fontSize: screenHeight * 0.12,
+                                  fontSize: screenHeight * 0.07,
                                   fontWeight: FontWeight.w400),
                               textAlign: TextAlign.center),
                           SizedBox(
                             child: Text("Minutos",
                                 style: GoogleFonts.cormorantGaramond(
-                                    fontSize: screenHeight * 0.04,
+                                    fontSize: screenHeight * 0.025,
                                     fontWeight: FontWeight.w400),
                                 textAlign: TextAlign.center),
-                            width: 160.0,
+                            width: screenWidth * 0.22,
                           )
                         ],
                       ),
@@ -168,16 +170,16 @@ class _InvitationPageState extends State<InvitationPage> {
                         children: [
                           Text(_timeUntil[3].toString(),
                               style: GoogleFonts.cormorantGaramond(
-                                  fontSize: screenHeight * 0.12,
+                                  fontSize: screenHeight * 0.07,
                                   fontWeight: FontWeight.w400),
                               textAlign: TextAlign.center),
                           SizedBox(
                             child: Text("Segundos",
                                 style: GoogleFonts.cormorantGaramond(
-                                    fontSize: screenHeight * 0.04,
+                                    fontSize: screenHeight * 0.025,
                                     fontWeight: FontWeight.w400),
                                 textAlign: TextAlign.center),
-                            width: 160.0,
+                            width: screenWidth * 0.22,
                           )
                         ],
                       ),
@@ -189,7 +191,7 @@ class _InvitationPageState extends State<InvitationPage> {
                   ),
                   Text('para nuestra boda',
                       style: GoogleFonts.cormorantGaramond(
-                          fontSize: screenHeight * 0.08,
+                          fontSize: screenHeight * 0.05,
                           fontWeight: FontWeight.w400),
                       textAlign: TextAlign.center),
                   Spacer()
