@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'dart:async';
+import 'dart:developer';
 
 import 'package:invitacion/timeLeft.dart';
+import 'package:invitacion/form.dart';
+import 'package:invitacion/place.dart';
 
 class InvitationPage extends StatefulWidget {
   const InvitationPage({super.key, required this.title});
@@ -13,6 +16,7 @@ class InvitationPage extends StatefulWidget {
 }
 
 class _InvitationPageState extends State<InvitationPage> {
+  bool isClicked = true;
   List<int> _timeUntil = List<int>.filled(4, 0);
 
   Timer? _timer;
@@ -64,7 +68,7 @@ class _InvitationPageState extends State<InvitationPage> {
                     ),
                     Text(
                       'Bárbara',
-                      style: GoogleFonts.cormorantGaramond(
+                      style: GoogleFonts.alexBrush(
                           fontSize: screenHeight * 0.12,
                           fontWeight: FontWeight.w400),
                       textAlign: TextAlign.center,
@@ -198,7 +202,53 @@ class _InvitationPageState extends State<InvitationPage> {
                 ],
               )),
             ),
-          )
+          ),
+          SliverToBoxAdapter(
+              child: Container(
+            width: screenWidth,
+            child: Column(
+              children: [
+                Text('Dónde y Cuándo'),
+                MyCustomPlace(
+                  event: "Ceremonia Religiosa",
+                  namePlace: "Catedral de Léon",
+                  hour: "12:00h",
+                  location: "Calle Ancha",
+                  image: "catedral.jpeg",
+                  coord: [2.0, 5.65],
+                )
+              ],
+            ),
+          )),
+          SliverToBoxAdapter(
+              child: Container(
+                  height: screenHeight * 0.1,
+                  width: screenWidth,
+                  child: Center(
+                      child: SizedBox(
+                          width: screenHeight * 0.8,
+                          height: double.infinity,
+                          child: ElevatedButton(
+                            child: Text("CONFIRMAR ASISTENCIA"),
+                            style: ElevatedButton.styleFrom(
+                              primary: Color(0xffBE9E49),
+                              elevation: 0,
+                            ),
+                            onPressed: () {
+                              isClicked = !isClicked;
+                            },
+                          ))))),
+          SliverToBoxAdapter(
+              child: isClicked
+                  ? Container(
+                      child: Center(
+                          child: Column(children: [
+                      SizedBox(
+                        height: screenHeight * 0.05,
+                      ),
+                      MyCustomForm()
+                    ])))
+                  : Container())
         ],
       ),
     );

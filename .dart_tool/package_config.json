@@ -44,6 +44,24 @@
       "languageVersion": "2.12"
     },
     {
+      "name": "dio",
+      "rootUri": "file:///home/gentlebots/.pub-cache/hosted/pub.dev/dio-5.3.2",
+      "packageUri": "lib/",
+      "languageVersion": "2.15"
+    },
+    {
+      "name": "either_dart",
+      "rootUri": "file:///home/gentlebots/.pub-cache/hosted/pub.dev/either_dart-1.0.0",
+      "packageUri": "lib/",
+      "languageVersion": "3.0"
+    },
+    {
+      "name": "equatable",
+      "rootUri": "file:///home/gentlebots/.pub-cache/hosted/pub.dev/equatable-2.0.5",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
       "name": "fake_async",
       "rootUri": "file:///home/gentlebots/.pub-cache/hosted/pub.dev/fake_async-1.3.1",
       "packageUri": "lib/",
@@ -68,8 +86,26 @@
       "languageVersion": "2.18"
     },
     {
+      "name": "flutter_number_picker",
+      "rootUri": "file:///home/gentlebots/.pub-cache/hosted/pub.dev/flutter_number_picker-1.0.4",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
+      "name": "flutter_svg",
+      "rootUri": "file:///home/gentlebots/.pub-cache/hosted/pub.dev/flutter_svg-0.22.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
       "name": "flutter_test",
       "rootUri": "file:///home/gentlebots/snap/flutter/common/flutter/packages/flutter_test",
+      "packageUri": "lib/",
+      "languageVersion": "3.0"
+    },
+    {
+      "name": "flutter_web_plugins",
+      "rootUri": "file:///home/gentlebots/snap/flutter/common/flutter/packages/flutter_web_plugins",
       "packageUri": "lib/",
       "languageVersion": "3.0"
     },
@@ -78,6 +114,42 @@
       "rootUri": "file:///home/gentlebots/.pub-cache/hosted/pub.dev/google_fonts-5.1.0",
       "packageUri": "lib/",
       "languageVersion": "2.14"
+    },
+    {
+      "name": "google_identity_services_web",
+      "rootUri": "file:///home/gentlebots/.pub-cache/hosted/pub.dev/google_identity_services_web-0.2.1+1",
+      "packageUri": "lib/",
+      "languageVersion": "2.19"
+    },
+    {
+      "name": "google_sign_in",
+      "rootUri": "file:///home/gentlebots/.pub-cache/hosted/pub.dev/google_sign_in-6.1.5",
+      "packageUri": "lib/",
+      "languageVersion": "2.19"
+    },
+    {
+      "name": "google_sign_in_android",
+      "rootUri": "file:///home/gentlebots/.pub-cache/hosted/pub.dev/google_sign_in_android-6.1.19",
+      "packageUri": "lib/",
+      "languageVersion": "2.19"
+    },
+    {
+      "name": "google_sign_in_ios",
+      "rootUri": "file:///home/gentlebots/.pub-cache/hosted/pub.dev/google_sign_in_ios-5.6.3",
+      "packageUri": "lib/",
+      "languageVersion": "2.19"
+    },
+    {
+      "name": "google_sign_in_platform_interface",
+      "rootUri": "file:///home/gentlebots/.pub-cache/hosted/pub.dev/google_sign_in_platform_interface-2.4.2",
+      "packageUri": "lib/",
+      "languageVersion": "2.19"
+    },
+    {
+      "name": "google_sign_in_web",
+      "rootUri": "file:///home/gentlebots/.pub-cache/hosted/pub.dev/google_sign_in_web-0.12.0+4",
+      "packageUri": "lib/",
+      "languageVersion": "2.19"
     },
     {
       "name": "http",
@@ -92,6 +164,12 @@
       "languageVersion": "2.12"
     },
     {
+      "name": "infinite_listview",
+      "rootUri": "file:///home/gentlebots/.pub-cache/hosted/pub.dev/infinite_listview-1.1.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
       "name": "js",
       "rootUri": "file:///home/gentlebots/.pub-cache/hosted/pub.dev/js-0.6.7",
       "packageUri": "lib/",
@@ -102,6 +180,12 @@
       "rootUri": "file:///home/gentlebots/.pub-cache/hosted/pub.dev/lints-2.1.1",
       "packageUri": "lib/",
       "languageVersion": "3.0"
+    },
+    {
+      "name": "map_launcher",
+      "rootUri": "file:///home/gentlebots/.pub-cache/hosted/pub.dev/map_launcher-2.5.0+1",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
     },
     {
       "name": "matcher",
@@ -122,8 +206,26 @@
       "languageVersion": "2.12"
     },
     {
+      "name": "numberpicker",
+      "rootUri": "file:///home/gentlebots/.pub-cache/hosted/pub.dev/numberpicker-2.1.2",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
       "name": "path",
       "rootUri": "file:///home/gentlebots/.pub-cache/hosted/pub.dev/path-1.8.3",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
+      "name": "path_drawing",
+      "rootUri": "file:///home/gentlebots/.pub-cache/hosted/pub.dev/path_drawing-0.5.1+1",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
+      "name": "path_parsing",
+      "rootUri": "file:///home/gentlebots/.pub-cache/hosted/pub.dev/path_parsing-0.2.1",
       "packageUri": "lib/",
       "languageVersion": "2.12"
     },
@@ -164,6 +266,12 @@
       "languageVersion": "2.19"
     },
     {
+      "name": "petitparser",
+      "rootUri": "file:///home/gentlebots/.pub-cache/hosted/pub.dev/petitparser-5.4.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.19"
+    },
+    {
       "name": "platform",
       "rootUri": "file:///home/gentlebots/.pub-cache/hosted/pub.dev/platform-3.1.2",
       "packageUri": "lib/",
@@ -174,6 +282,12 @@
       "rootUri": "file:///home/gentlebots/.pub-cache/hosted/pub.dev/plugin_platform_interface-2.1.6",
       "packageUri": "lib/",
       "languageVersion": "2.19"
+    },
+    {
+      "name": "quiver",
+      "rootUri": "file:///home/gentlebots/.pub-cache/hosted/pub.dev/quiver-3.2.1",
+      "packageUri": "lib/",
+      "languageVersion": "2.17"
     },
     {
       "name": "sky_engine",
@@ -242,13 +356,19 @@
       "languageVersion": "2.18"
     },
     {
+      "name": "xml",
+      "rootUri": "file:///home/gentlebots/.pub-cache/hosted/pub.dev/xml-5.4.1",
+      "packageUri": "lib/",
+      "languageVersion": "2.16"
+    },
+    {
       "name": "invitacion",
       "rootUri": "../",
       "packageUri": "lib/",
       "languageVersion": "3.0"
     }
   ],
-  "generated": "2023-08-30T16:34:57.186414Z",
+  "generated": "2023-09-17T17:23:41.320686Z",
   "generator": "pub",
   "generatorVersion": "3.0.6"
 }
