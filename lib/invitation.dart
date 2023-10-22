@@ -284,6 +284,184 @@ class _InvitationPageState extends State<InvitationPage> {
               ],
             ),
           )),
+          //timeline
+          SliverToBoxAdapter(
+              child: Container(
+                  width: screenWidth,
+                  child: Center(
+                      child: Column(children: [
+                    SizedBox(
+                      height: screenHeight * 0.05,
+                    ),
+                    Padding(
+                        padding: EdgeInsets.all(20.0),
+                        child: Center(
+                            child: Text(
+                          'Te compartimos los detalles de la celebración',
+                          style: GoogleFonts.cormorantGaramond(
+                              fontSize: screenHeight * 0.03,
+                              fontWeight: FontWeight.w400),
+                          textAlign: TextAlign.center,
+                        ))),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: [
+                        SizedBox(
+                          width: screenWidth * 0.2,
+                        ),
+                        Column(
+                          children: [
+                            Icon(
+                              CupertinoIcons.heart_circle_fill,
+                              color: Colors.black,
+                              size: screenHeight * 0.06,
+                            ),
+                          ],
+                        ),
+                        SizedBox(width: screenWidth * 0.04),
+                        Column(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              '19:00h',
+                              style: GoogleFonts.cormorantGaramond(
+                                  fontSize: screenHeight * 0.03,
+                                  fontWeight: FontWeight.w400),
+                            ),
+                            Text(
+                              'Preboda',
+                              style: GoogleFonts.cormorantGaramond(
+                                  fontSize: screenHeight * 0.04,
+                                  fontWeight: FontWeight.w400),
+                            ),
+                            Image.asset(
+                              'assets/cocktailicon.png',
+                              width: screenWidth * 0.2,
+                              fit: BoxFit.cover,
+                            )
+                          ],
+                        )
+                      ],
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: [
+                        SizedBox(
+                          width: screenWidth * 0.2,
+                        ),
+                        Icon(
+                          CupertinoIcons.heart_circle_fill,
+                          color: Colors.black,
+                          size: screenHeight * 0.06,
+                        ),
+                        SizedBox(width: screenWidth * 0.04),
+                        Column(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              '13:00h',
+                              style: GoogleFonts.cormorantGaramond(
+                                  fontSize: screenHeight * 0.03,
+                                  fontWeight: FontWeight.w400),
+                            ),
+                            Text(
+                              'Ceremonia',
+                              style: GoogleFonts.cormorantGaramond(
+                                  fontSize: screenHeight * 0.04,
+                                  fontWeight: FontWeight.w400),
+                            ),
+                            Text(
+                              'Religiosa',
+                              style: GoogleFonts.cormorantGaramond(
+                                  fontSize: screenHeight * 0.04,
+                                  fontWeight: FontWeight.w400),
+                            ),
+                            Image.asset(
+                              'assets/iglesiaicon.png',
+                              width: screenWidth * 0.2,
+                              fit: BoxFit.cover,
+                            )
+                          ],
+                        )
+                      ],
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: [
+                        SizedBox(
+                          width: screenWidth * 0.2,
+                        ),
+                        Icon(
+                          CupertinoIcons.heart_circle_fill,
+                          color: Colors.black,
+                          size: screenHeight * 0.06,
+                        ),
+                        SizedBox(width: screenWidth * 0.04),
+                        Column(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              '14:45h',
+                              style: GoogleFonts.cormorantGaramond(
+                                  fontSize: screenHeight * 0.03,
+                                  fontWeight: FontWeight.w400),
+                            ),
+                            Text(
+                              'Celebración',
+                              style: GoogleFonts.cormorantGaramond(
+                                  fontSize: screenHeight * 0.04,
+                                  fontWeight: FontWeight.w400),
+                            ),
+                            Image.asset(
+                              'assets/restauranteicon.png',
+                              width: screenWidth * 0.2,
+                              fit: BoxFit.cover,
+                            )
+                          ],
+                        )
+                      ],
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: [
+                        SizedBox(
+                          width: screenWidth * 0.2,
+                        ),
+                        Icon(
+                          CupertinoIcons.heart_circle_fill,
+                          color: Colors.black,
+                          size: screenHeight * 0.06,
+                        ),
+                        SizedBox(width: screenWidth * 0.04),
+                        Column(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              '22:00h',
+                              style: GoogleFonts.cormorantGaramond(
+                                  fontSize: screenHeight * 0.03,
+                                  fontWeight: FontWeight.w400),
+                            ),
+                            Text(
+                              'Fiesta',
+                              style: GoogleFonts.cormorantGaramond(
+                                  fontSize: screenHeight * 0.04,
+                                  fontWeight: FontWeight.w400),
+                            ),
+                            Image.asset(
+                              'assets/fiestaicon.png',
+                              width: screenWidth * 0.2,
+                              fit: BoxFit.cover,
+                            )
+                          ],
+                        )
+                      ],
+                    )
+                  ])))),
           SliverToBoxAdapter(
               child: Container(
                   height: screenHeight * 0.1,
