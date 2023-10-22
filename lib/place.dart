@@ -7,6 +7,7 @@ import 'package:invitacion/controller/form_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:map_launcher/map_launcher.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 // Create a Form widget.
 class MyCustomPlace extends StatefulWidget {
@@ -41,6 +42,13 @@ class MyCustomPlaceState extends State<MyCustomPlace> {
       print(element.mapType);
     });
     print(availableMas);
+  }
+
+  Future<void> _launchUrl() async {
+    if (!await launchUrl(Uri.parse(
+        'https://www.google.com/maps/place/Catedral+de+Le%C3%B3n/@42.5994383,-5.5671632,15z/data=!4m6!3m5!1s0xd379a9b863a0fab:0x13727554f4d5e06a!8m2!3d42.5994383!4d-5.5671632!16zL20vMDc3MF9z?entry=ttu'))) {
+      throw Exception('Could not launch');
+    }
   }
 
   @override
@@ -97,7 +105,8 @@ class MyCustomPlaceState extends State<MyCustomPlace> {
                         elevation: 0,
                       ),
                       onPressed: () {
-                        _openMaps();
+                        //_openMaps();
+                        _launchUrl();
                       },
                     )
                   ],

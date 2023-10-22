@@ -45,6 +45,7 @@ dependencies:
   flutter_svg: ^0.22.0
   flutter_number_picker: ^1.0.4
   numberpicker: ^2.1.2
+  url_launcher: ^6.1.14
 
 dev_dependencies:
   flutter_test:
@@ -70,6 +71,9 @@ flutter:
   assets:
     - assets/nombrebackground.jpg
     - assets/nombrebackground2.jpg
+    - assets/background.jpg
+    - assets/cuenta.jpg
+    - assets/cuenta1.jpg
 
 
   # To add assets to your application, add an assets section, like this:

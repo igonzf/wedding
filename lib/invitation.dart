@@ -47,7 +47,7 @@ class _InvitationPageState extends State<InvitationPage> {
             height: screenHeight,
             child: Stack(children: <Widget>[
               Image.asset(
-                'assets/nombrebackground2.jpg',
+                'assets/background.jpg',
                 width: double.infinity,
                 fit: BoxFit.cover,
               ),
@@ -105,103 +105,130 @@ class _InvitationPageState extends State<InvitationPage> {
           )),
           SliverToBoxAdapter(
             child: Container(
-              height: screenHeight * 0.6,
-              width: screenWidth,
-              child: Center(
-                  child: Column(
-                children: [
-                  Spacer(),
-                  Text('Faltan',
+                height: screenHeight * 0.3,
+                width: screenWidth,
+                color: const Color(0xff9ab4ac),
+                child: Center(
+                    child: Column(
+                  children: [
+                    Spacer(),
+                    Text(
+                      'O amor é como o vento, non se ve, pero sérvese para guiar o barco da vida.',
                       style: GoogleFonts.cormorantGaramond(
-                          fontSize: screenHeight * 0.05,
-                          fontWeight: FontWeight.w400),
-                      textAlign: TextAlign.center),
-                  Row(
+                          fontSize: screenHeight * 0.03,
+                          fontWeight: FontWeight.w400,
+                          color: Colors.white),
+                      textAlign: TextAlign.center,
+                    ),
+                    Spacer()
+                  ],
+                ))),
+          ),
+          SliverToBoxAdapter(
+            child: Container(
+                height: screenHeight * 0.6,
+                width: screenWidth,
+                child: Stack(children: <Widget>[
+                  Image.asset(
+                    'assets/cuenta1.jpg',
+                    width: double.infinity,
+                    fit: BoxFit.cover,
+                  ),
+                  Center(
+                      child: Column(
                     children: [
                       Spacer(),
-                      Column(
+                      Text('Faltan',
+                          style: GoogleFonts.cormorantGaramond(
+                              fontSize: screenHeight * 0.05,
+                              fontWeight: FontWeight.w400),
+                          textAlign: TextAlign.center),
+                      Row(
                         children: [
-                          Text(_timeUntil[0].toString(),
-                              style: GoogleFonts.cormorantGaramond(
-                                  fontSize: screenHeight * 0.07,
-                                  fontWeight: FontWeight.w400),
-                              textAlign: TextAlign.center),
-                          SizedBox(
-                            child: Text("Días",
-                                style: GoogleFonts.cormorantGaramond(
-                                    fontSize: screenHeight * 0.025,
-                                    fontWeight: FontWeight.w400),
-                                textAlign: TextAlign.center),
-                            width: screenWidth * 0.22,
-                          )
+                          Spacer(),
+                          Column(
+                            children: [
+                              Text(_timeUntil[0].toString(),
+                                  style: GoogleFonts.cormorantGaramond(
+                                      fontSize: screenHeight * 0.07,
+                                      fontWeight: FontWeight.w400),
+                                  textAlign: TextAlign.center),
+                              SizedBox(
+                                child: Text("Días",
+                                    style: GoogleFonts.cormorantGaramond(
+                                        fontSize: screenHeight * 0.025,
+                                        fontWeight: FontWeight.w400),
+                                    textAlign: TextAlign.center),
+                                width: screenWidth * 0.22,
+                              )
+                            ],
+                          ),
+                          Column(
+                            children: [
+                              Text(_timeUntil[1].toString(),
+                                  style: GoogleFonts.cormorantGaramond(
+                                      fontSize: screenHeight * 0.07,
+                                      fontWeight: FontWeight.w400),
+                                  textAlign: TextAlign.center),
+                              SizedBox(
+                                child: Text("Horas",
+                                    style: GoogleFonts.cormorantGaramond(
+                                        fontSize: screenHeight * 0.025,
+                                        fontWeight: FontWeight.w400),
+                                    textAlign: TextAlign.center),
+                                width: screenWidth * 0.22,
+                              )
+                            ],
+                          ),
+                          Column(
+                            children: [
+                              Text(_timeUntil[2].toString(),
+                                  style: GoogleFonts.cormorantGaramond(
+                                      fontSize: screenHeight * 0.07,
+                                      fontWeight: FontWeight.w400),
+                                  textAlign: TextAlign.center),
+                              SizedBox(
+                                child: Text("Minutos",
+                                    style: GoogleFonts.cormorantGaramond(
+                                        fontSize: screenHeight * 0.025,
+                                        fontWeight: FontWeight.w400),
+                                    textAlign: TextAlign.center),
+                                width: screenWidth * 0.22,
+                              )
+                            ],
+                          ),
+                          Column(
+                            children: [
+                              Text(_timeUntil[3].toString(),
+                                  style: GoogleFonts.cormorantGaramond(
+                                      fontSize: screenHeight * 0.07,
+                                      fontWeight: FontWeight.w400),
+                                  textAlign: TextAlign.center),
+                              SizedBox(
+                                child: Text("Segundos",
+                                    style: GoogleFonts.cormorantGaramond(
+                                        fontSize: screenHeight * 0.025,
+                                        fontWeight: FontWeight.w400),
+                                    textAlign: TextAlign.center),
+                                width: screenWidth * 0.22,
+                              )
+                            ],
+                          ),
+                          Spacer()
                         ],
                       ),
-                      Column(
-                        children: [
-                          Text(_timeUntil[1].toString(),
-                              style: GoogleFonts.cormorantGaramond(
-                                  fontSize: screenHeight * 0.07,
-                                  fontWeight: FontWeight.w400),
-                              textAlign: TextAlign.center),
-                          SizedBox(
-                            child: Text("Horas",
-                                style: GoogleFonts.cormorantGaramond(
-                                    fontSize: screenHeight * 0.025,
-                                    fontWeight: FontWeight.w400),
-                                textAlign: TextAlign.center),
-                            width: screenWidth * 0.22,
-                          )
-                        ],
+                      SizedBox(
+                        height: 20.0,
                       ),
-                      Column(
-                        children: [
-                          Text(_timeUntil[2].toString(),
-                              style: GoogleFonts.cormorantGaramond(
-                                  fontSize: screenHeight * 0.07,
-                                  fontWeight: FontWeight.w400),
-                              textAlign: TextAlign.center),
-                          SizedBox(
-                            child: Text("Minutos",
-                                style: GoogleFonts.cormorantGaramond(
-                                    fontSize: screenHeight * 0.025,
-                                    fontWeight: FontWeight.w400),
-                                textAlign: TextAlign.center),
-                            width: screenWidth * 0.22,
-                          )
-                        ],
-                      ),
-                      Column(
-                        children: [
-                          Text(_timeUntil[3].toString(),
-                              style: GoogleFonts.cormorantGaramond(
-                                  fontSize: screenHeight * 0.07,
-                                  fontWeight: FontWeight.w400),
-                              textAlign: TextAlign.center),
-                          SizedBox(
-                            child: Text("Segundos",
-                                style: GoogleFonts.cormorantGaramond(
-                                    fontSize: screenHeight * 0.025,
-                                    fontWeight: FontWeight.w400),
-                                textAlign: TextAlign.center),
-                            width: screenWidth * 0.22,
-                          )
-                        ],
-                      ),
+                      Text('para nuestra boda',
+                          style: GoogleFonts.cormorantGaramond(
+                              fontSize: screenHeight * 0.05,
+                              fontWeight: FontWeight.w400),
+                          textAlign: TextAlign.center),
                       Spacer()
                     ],
-                  ),
-                  SizedBox(
-                    height: 20.0,
-                  ),
-                  Text('para nuestra boda',
-                      style: GoogleFonts.cormorantGaramond(
-                          fontSize: screenHeight * 0.05,
-                          fontWeight: FontWeight.w400),
-                      textAlign: TextAlign.center),
-                  Spacer()
-                ],
-              )),
-            ),
+                  )),
+                ])),
           ),
           SliverToBoxAdapter(
               child: Container(
@@ -209,6 +236,22 @@ class _InvitationPageState extends State<InvitationPage> {
             child: Column(
               children: [
                 Text('Dónde y Cuándo'),
+                MyCustomPlace(
+                  event: "Ceremonia Religiosa",
+                  namePlace: "Catedral de Léon",
+                  hour: "12:00h",
+                  location: "Calle Ancha",
+                  image: "catedral.jpeg",
+                  coord: [2.0, 5.65],
+                ),
+                MyCustomPlace(
+                  event: "Ceremonia Religiosa",
+                  namePlace: "Catedral de Léon",
+                  hour: "12:00h",
+                  location: "Calle Ancha",
+                  image: "catedral.jpeg",
+                  coord: [2.0, 5.65],
+                ),
                 MyCustomPlace(
                   event: "Ceremonia Religiosa",
                   namePlace: "Catedral de Léon",
