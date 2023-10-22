@@ -109,18 +109,16 @@ class _InvitationPageState extends State<InvitationPage> {
                 width: screenWidth,
                 color: const Color(0xff9ab4ac),
                 child: Center(
-                    child: Column(
+                    child: Row(
                   children: [
-                    Spacer(),
                     Text(
-                      'O amor é como o vento, non se ve, pero sérvese para guiar o barco da vida.',
+                      'O amor é como o vento, non se ve, pero sérvese para guiar o barco da vida. ❤️',
                       style: GoogleFonts.cormorantGaramond(
                           fontSize: screenHeight * 0.03,
                           fontWeight: FontWeight.w400,
                           color: Colors.white),
                       textAlign: TextAlign.center,
                     ),
-                    Spacer()
                   ],
                 ))),
           ),
@@ -241,7 +239,7 @@ class _InvitationPageState extends State<InvitationPage> {
                   namePlace: "Casa de la novia",
                   hour: "19:00h",
                   location: "Grulleros",
-                  image: "Preboda.jpg",
+                  image: "assets/Preboda.jpg",
                   coord: [2.0, 5.65],
                 ),
                 MyCustomPlace(
@@ -249,7 +247,7 @@ class _InvitationPageState extends State<InvitationPage> {
                   namePlace: "Catedral de Léon",
                   hour: "13:00h",
                   location: "Calle Ancha",
-                  image: "catedral.jpeg",
+                  image: "assets/catedral.jpeg",
                   coord: [2.0, 5.65],
                 ),
                 MyCustomPlace(
@@ -257,7 +255,7 @@ class _InvitationPageState extends State<InvitationPage> {
                   namePlace: "El Cigarral",
                   hour: "14:45h",
                   location: "Cembranos",
-                  image: "cigarral.jpg",
+                  image: "assets/cigarral.jpg",
                   coord: [2.0, 5.65],
                 )
               ],

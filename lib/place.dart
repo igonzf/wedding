@@ -101,7 +101,7 @@ class MyCustomPlaceState extends State<MyCustomPlace> {
                     ElevatedButton(
                       child: Text("Ver mapa"),
                       style: ElevatedButton.styleFrom(
-                        primary: Color(0xffBE9E49),
+                        primary: Color(0xff69491e),
                         elevation: 0,
                       ),
                       onPressed: () {
