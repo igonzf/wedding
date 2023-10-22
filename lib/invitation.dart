@@ -68,23 +68,23 @@ class _InvitationPageState extends State<InvitationPage> {
                     ),
                     Text(
                       'Bárbara',
-                      style: GoogleFonts.alexBrush(
-                          fontSize: screenHeight * 0.12,
+                      style: GoogleFonts.greatVibes(
+                          fontSize: screenHeight * 0.10,
                           fontWeight: FontWeight.w400),
                       textAlign: TextAlign.center,
                     ),
                     Text(
                       'y',
-                      style: GoogleFonts.cormorantGaramond(
-                        fontSize: screenHeight * 0.12,
+                      style: GoogleFonts.greatVibes(
+                        fontSize: screenHeight * 0.10,
                         fontWeight: FontWeight.w400,
                       ),
                       textAlign: TextAlign.center,
                     ),
                     Text(
                       'Santi',
-                      style: GoogleFonts.cormorantGaramond(
-                          fontSize: screenHeight * 0.12,
+                      style: GoogleFonts.greatVibes(
+                          fontSize: screenHeight * 0.10,
                           fontWeight: FontWeight.w400),
                       textAlign: TextAlign.center,
                     ),
@@ -130,7 +130,7 @@ class _InvitationPageState extends State<InvitationPage> {
                 width: screenWidth,
                 child: Stack(children: <Widget>[
                   Image.asset(
-                    'assets/cuenta1.jpg',
+                    'assets/cuenta2.jpg',
                     width: double.infinity,
                     fit: BoxFit.cover,
                   ),
@@ -237,27 +237,27 @@ class _InvitationPageState extends State<InvitationPage> {
               children: [
                 Text('Dónde y Cuándo'),
                 MyCustomPlace(
-                  event: "Ceremonia Religiosa",
-                  namePlace: "Catedral de Léon",
-                  hour: "12:00h",
-                  location: "Calle Ancha",
-                  image: "catedral.jpeg",
+                  event: "Preboda",
+                  namePlace: "Casa de la novia",
+                  hour: "19:00h",
+                  location: "Grulleros",
+                  image: "Preboda.jpg",
                   coord: [2.0, 5.65],
                 ),
                 MyCustomPlace(
                   event: "Ceremonia Religiosa",
                   namePlace: "Catedral de Léon",
-                  hour: "12:00h",
+                  hour: "13:00h",
                   location: "Calle Ancha",
                   image: "catedral.jpeg",
                   coord: [2.0, 5.65],
                 ),
                 MyCustomPlace(
-                  event: "Ceremonia Religiosa",
-                  namePlace: "Catedral de Léon",
-                  hour: "12:00h",
-                  location: "Calle Ancha",
-                  image: "catedral.jpeg",
+                  event: "Celebración",
+                  namePlace: "El Cigarral",
+                  hour: "14:45h",
+                  location: "Cembranos",
+                  image: "cigarral.jpg",
                   coord: [2.0, 5.65],
                 )
               ],
