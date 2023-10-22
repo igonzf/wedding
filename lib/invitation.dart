@@ -112,7 +112,7 @@ class _InvitationPageState extends State<InvitationPage> {
                     child: Row(
                   children: [
                     Text(
-                      'O amor é como o vento, non se ve, pero sérvese para guiar o barco da vida. ❤️',
+                      'O amor é como o vento, non se ve, pero sérvese para guiar o barco da vida.',
                       style: GoogleFonts.cormorantGaramond(
                           fontSize: screenHeight * 0.03,
                           fontWeight: FontWeight.w400,
