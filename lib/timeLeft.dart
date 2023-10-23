@@ -2,18 +2,18 @@ class TimeLeft {
   List<int> timeLeft(DateTime due) {
     List<int> retVal;
 
-    Duration _timeUntilDue = due.difference(DateTime.now());
+    Duration timeUntilDue = due.difference(DateTime.now());
 
-    int _daysUntil = _timeUntilDue.inDays;
-    int _hoursUntil = _timeUntilDue.inHours - (_daysUntil * 24);
-    int _minUntil =
-        _timeUntilDue.inMinutes - (_daysUntil * 24 * 60) - (_hoursUntil * 60);
-    int _secUntil = _timeUntilDue.inSeconds -
-        (_daysUntil * 24 * 60 * 60) -
-        (_hoursUntil * 60 * 60) -
-        (_minUntil * 60);
+    int daysUntil = timeUntilDue.inDays;
+    int hoursUntil = timeUntilDue.inHours - (daysUntil * 24);
+    int minUntil =
+        timeUntilDue.inMinutes - (daysUntil * 24 * 60) - (hoursUntil * 60);
+    int secUntil = timeUntilDue.inSeconds -
+        (daysUntil * 24 * 60 * 60) -
+        (hoursUntil * 60 * 60) -
+        (minUntil * 60);
 
-    retVal = [_daysUntil, _hoursUntil, _minUntil, _secUntil];
+    retVal = [daysUntil, hoursUntil, minUntil, secUntil];
 
     return retVal;
   }

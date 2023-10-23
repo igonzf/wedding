@@ -332,6 +332,18 @@
       "languageVersion": "2.18"
     },
     {
+      "name": "timeline_tile",
+      "rootUri": "file:///home/gentlebots/.pub-cache/hosted/pub.dev/timeline_tile-2.0.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
+      "name": "timelines",
+      "rootUri": "file:///home/gentlebots/.pub-cache/hosted/pub.dev/timelines-0.1.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
       "name": "typed_data",
       "rootUri": "file:///home/gentlebots/.pub-cache/hosted/pub.dev/typed_data-1.3.2",
       "packageUri": "lib/",
@@ -416,7 +428,7 @@
       "languageVersion": "3.0"
     }
   ],
-  "generated": "2023-10-22T21:10:55.512936Z",
+  "generated": "2023-10-23T11:23:54.753851Z",
   "generator": "pub",
   "generatorVersion": "3.0.6"
 }

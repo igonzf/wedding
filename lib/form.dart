@@ -1,12 +1,8 @@
-import 'dart:js_interop';
 
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'dart:async';
-import 'dart:developer';
 import 'package:invitacion/model/feedback.dart';
 import 'package:invitacion/controller/form_controller.dart';
-import 'package:numberpicker/numberpicker.dart';
 import 'package:flutter_number_picker/flutter_number_picker.dart';
 
 // Create a Form widget.
@@ -56,11 +52,11 @@ class MyCustomFormState extends State<MyCustomForm> {
           elevation: 20,
           child: Container(
             width: screenWidth * 0.9,
-            decoration: BoxDecoration(
-              color: const Color.fromARGB(255, 236, 235, 231),
+            decoration: const BoxDecoration(
+              color: Color.fromARGB(255, 236, 235, 231),
             ),
             child: Padding(
-              padding: EdgeInsets.all(22.0),
+              padding: const EdgeInsets.all(22.0),
               child: Column(
                 //crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -80,7 +76,7 @@ class MyCustomFormState extends State<MyCustomForm> {
                   TextFormField(
                     // The validator receives the text that the user has entered.
                     controller: _nameController,
-                    decoration: InputDecoration(
+                    decoration: const InputDecoration(
                         border: OutlineInputBorder(),
                         filled: true,
                         fillColor: Colors.white),
@@ -106,7 +102,7 @@ class MyCustomFormState extends State<MyCustomForm> {
                       ))),
                   TextFormField(
                     controller: _foodController,
-                    decoration: InputDecoration(
+                    decoration: const InputDecoration(
                         border: OutlineInputBorder(),
                         filled: true,
                         fillColor: Colors.white),
@@ -131,7 +127,7 @@ class MyCustomFormState extends State<MyCustomForm> {
                   Row(children: [
                     Expanded(
                         child: RadioListTile<bool>(
-                      title: Text('Sí'),
+                      title: const Text('Sí'),
                       value: true,
                       groupValue: _isBusSelected,
                       onChanged: (bool? value) {
@@ -142,7 +138,7 @@ class MyCustomFormState extends State<MyCustomForm> {
                     )),
                     Expanded(
                         child: RadioListTile<bool>(
-                      title: Text('No'),
+                      title: const Text('No'),
                       value: false,
                       groupValue: _isBusSelected,
                       onChanged: (bool? value) {
@@ -168,7 +164,7 @@ class MyCustomFormState extends State<MyCustomForm> {
                   Row(children: [
                     Expanded(
                         child: RadioListTile<bool>(
-                      title: Text('Sí'),
+                      title: const Text('Sí'),
                       value: true,
                       groupValue: _isPrebodaSelected,
                       onChanged: (bool? value) {
@@ -179,7 +175,7 @@ class MyCustomFormState extends State<MyCustomForm> {
                     )),
                     Expanded(
                         child: RadioListTile<bool>(
-                      title: Text('No'),
+                      title: const Text('No'),
                       value: false,
                       groupValue: _isPrebodaSelected,
                       onChanged: (bool? value) {
@@ -205,7 +201,7 @@ class MyCustomFormState extends State<MyCustomForm> {
                   Row(children: [
                     Expanded(
                         child: RadioListTile<bool>(
-                      title: Text('Sí'),
+                      title: const Text('Sí'),
                       value: true,
                       groupValue: _isAcompanianteSelected,
                       onChanged: (bool? value) {
@@ -216,7 +212,7 @@ class MyCustomFormState extends State<MyCustomForm> {
                     )),
                     Expanded(
                         child: RadioListTile<bool>(
-                      title: Text('No'),
+                      title: const Text('No'),
                       value: false,
                       groupValue: _isAcompanianteSelected,
                       onChanged: (bool? value) {
@@ -230,8 +226,7 @@ class MyCustomFormState extends State<MyCustomForm> {
                     height: screenHeight * 0.05,
                   ),
                   Align(
-                      child: _isAcompanianteSelected!
-                          ? Container(
+                      child: _isAcompanianteSelected? Container(
                               child: Column(
                               children: [
                                 Align(
@@ -263,7 +258,7 @@ class MyCustomFormState extends State<MyCustomForm> {
 //---------------------------------------------------------------------------------------------
                   Align(
                       child: CustomVisibility(
-                          conditions: [_isAcompanianteSelected!, (numA >= 1)],
+                          conditions: [_isAcompanianteSelected, (numA >= 1)],
                           child: Column(
                             children: [
                               Align(
@@ -289,7 +284,7 @@ class MyCustomFormState extends State<MyCustomForm> {
                               TextFormField(
                                 // The validator receives the text that the user has entered.
                                 controller: _nameController1,
-                                decoration: InputDecoration(
+                                decoration: const InputDecoration(
                                     border: OutlineInputBorder(),
                                     filled: true,
                                     fillColor: Colors.white),
@@ -315,7 +310,7 @@ class MyCustomFormState extends State<MyCustomForm> {
                                   ))),
                               TextFormField(
                                 controller: _foodController1,
-                                decoration: InputDecoration(
+                                decoration: const InputDecoration(
                                     border: OutlineInputBorder(),
                                     filled: true,
                                     fillColor: Colors.white),
@@ -340,7 +335,7 @@ class MyCustomFormState extends State<MyCustomForm> {
                               Row(children: [
                                 Expanded(
                                     child: RadioListTile<bool>(
-                                  title: Text('Sí'),
+                                  title: const Text('Sí'),
                                   value: true,
                                   groupValue: _isBusSelected1,
                                   onChanged: (bool? value) {
@@ -351,7 +346,7 @@ class MyCustomFormState extends State<MyCustomForm> {
                                 )),
                                 Expanded(
                                     child: RadioListTile<bool>(
-                                  title: Text('No'),
+                                  title: const Text('No'),
                                   value: false,
                                   groupValue: _isBusSelected1,
                                   onChanged: (bool? value) {
@@ -377,7 +372,7 @@ class MyCustomFormState extends State<MyCustomForm> {
                               Row(children: [
                                 Expanded(
                                     child: RadioListTile<bool>(
-                                  title: Text('Sí'),
+                                  title: const Text('Sí'),
                                   value: true,
                                   groupValue: _isPrebodaSelected1,
                                   onChanged: (bool? value) {
@@ -388,7 +383,7 @@ class MyCustomFormState extends State<MyCustomForm> {
                                 )),
                                 Expanded(
                                     child: RadioListTile<bool>(
-                                  title: Text('No'),
+                                  title: const Text('No'),
                                   value: false,
                                   groupValue: _isPrebodaSelected1,
                                   onChanged: (bool? value) {
@@ -408,7 +403,7 @@ class MyCustomFormState extends State<MyCustomForm> {
 //---------------------------------------------------------------------------------------------
                   Align(
                       child: CustomVisibility(
-                          conditions: [_isAcompanianteSelected!, (numA >= 2)],
+                          conditions: [_isAcompanianteSelected, (numA >= 2)],
                           child: Column(
                             children: [
                               Align(
@@ -434,7 +429,7 @@ class MyCustomFormState extends State<MyCustomForm> {
                               TextFormField(
                                 // The validator receives the text that the user has entered.
                                 controller: _nameController2,
-                                decoration: InputDecoration(
+                                decoration: const InputDecoration(
                                     border: OutlineInputBorder(),
                                     filled: true,
                                     fillColor: Colors.white),
@@ -460,7 +455,7 @@ class MyCustomFormState extends State<MyCustomForm> {
                                   ))),
                               TextFormField(
                                 controller: _foodController2,
-                                decoration: InputDecoration(
+                                decoration: const InputDecoration(
                                     border: OutlineInputBorder(),
                                     filled: true,
                                     fillColor: Colors.white),
@@ -485,7 +480,7 @@ class MyCustomFormState extends State<MyCustomForm> {
                               Row(children: [
                                 Expanded(
                                     child: RadioListTile<bool>(
-                                  title: Text('Sí'),
+                                  title: const Text('Sí'),
                                   value: true,
                                   groupValue: _isBusSelected2,
                                   onChanged: (bool? value) {
@@ -496,7 +491,7 @@ class MyCustomFormState extends State<MyCustomForm> {
                                 )),
                                 Expanded(
                                     child: RadioListTile<bool>(
-                                  title: Text('No'),
+                                  title: const Text('No'),
                                   value: false,
                                   groupValue: _isBusSelected2,
                                   onChanged: (bool? value) {
@@ -522,7 +517,7 @@ class MyCustomFormState extends State<MyCustomForm> {
                               Row(children: [
                                 Expanded(
                                     child: RadioListTile<bool>(
-                                  title: Text('Sí'),
+                                  title: const Text('Sí'),
                                   value: true,
                                   groupValue: _isPrebodaSelected2,
                                   onChanged: (bool? value) {
@@ -533,7 +528,7 @@ class MyCustomFormState extends State<MyCustomForm> {
                                 )),
                                 Expanded(
                                     child: RadioListTile<bool>(
-                                  title: Text('No'),
+                                  title: const Text('No'),
                                   value: false,
                                   groupValue: _isPrebodaSelected2,
                                   onChanged: (bool? value) {
@@ -553,7 +548,7 @@ class MyCustomFormState extends State<MyCustomForm> {
 //---------------------------------------------------------------------------------------------
                   Align(
                       child: CustomVisibility(
-                          conditions: [_isAcompanianteSelected!, (numA >= 3)],
+                          conditions: [_isAcompanianteSelected, (numA >= 3)],
                           child: Column(
                             children: [
                               Align(
@@ -579,7 +574,7 @@ class MyCustomFormState extends State<MyCustomForm> {
                               TextFormField(
                                 // The validator receives the text that the user has entered.
                                 controller: _nameController3,
-                                decoration: InputDecoration(
+                                decoration: const InputDecoration(
                                     border: OutlineInputBorder(),
                                     filled: true,
                                     fillColor: Colors.white),
@@ -605,7 +600,7 @@ class MyCustomFormState extends State<MyCustomForm> {
                                   ))),
                               TextFormField(
                                 controller: _foodController3,
-                                decoration: InputDecoration(
+                                decoration: const InputDecoration(
                                     border: OutlineInputBorder(),
                                     filled: true,
                                     fillColor: Colors.white),
@@ -630,7 +625,7 @@ class MyCustomFormState extends State<MyCustomForm> {
                               Row(children: [
                                 Expanded(
                                     child: RadioListTile<bool>(
-                                  title: Text('Sí'),
+                                  title: const Text('Sí'),
                                   value: true,
                                   groupValue: _isBusSelected3,
                                   onChanged: (bool? value) {
@@ -641,7 +636,7 @@ class MyCustomFormState extends State<MyCustomForm> {
                                 )),
                                 Expanded(
                                     child: RadioListTile<bool>(
-                                  title: Text('No'),
+                                  title: const Text('No'),
                                   value: false,
                                   groupValue: _isBusSelected3,
                                   onChanged: (bool? value) {
@@ -667,7 +662,7 @@ class MyCustomFormState extends State<MyCustomForm> {
                               Row(children: [
                                 Expanded(
                                     child: RadioListTile<bool>(
-                                  title: Text('Sí'),
+                                  title: const Text('Sí'),
                                   value: true,
                                   groupValue: _isPrebodaSelected3,
                                   onChanged: (bool? value) {
@@ -678,7 +673,7 @@ class MyCustomFormState extends State<MyCustomForm> {
                                 )),
                                 Expanded(
                                     child: RadioListTile<bool>(
-                                  title: Text('No'),
+                                  title: const Text('No'),
                                   value: false,
                                   groupValue: _isPrebodaSelected3,
                                   onChanged: (bool? value) {
@@ -699,14 +694,13 @@ class MyCustomFormState extends State<MyCustomForm> {
                             // Validate returns true if the form is valid, or false otherwise.
                             if (_formKey.currentState!.validate() &&
                                 _isPrebodaSelected != null &&
-                                _isBusSelected != null &&
-                                _isAcompanianteSelected != null) {
+                                _isBusSelected != null) {
                               // If the form is valid, display a snackbar. In the real world,
                               // you'd often call a server or save the information in a database.
                               print("Nombre: ${_nameController.text}");
                               print("Dieta: ${_foodController.text}");
-                              print("Bus: ${_isBusSelected}");
-                              print("Preboda: ${_isPrebodaSelected}");
+                              print("Bus: $_isBusSelected");
+                              print("Preboda: $_isPrebodaSelected");
                               FeedbackForm feedbackForm = FeedbackForm(
                                   _nameController.text,
                                   _foodController.text,
@@ -813,18 +807,19 @@ class MyCustomFormState extends State<MyCustomForm> {
                                       );
                                     }
                                   });
-                                  controllers
-                                      .forEach((element) => (element.clear()));
+                                  for (var element in controllers) {
+                                    (element.clear());
+                                  }
                                   _isAcompanianteSelected = false;
                                 }
                               }
                             }
                           },
-                          child: const Text('CONFIRMAR'),
                           style: ElevatedButton.styleFrom(
-                            primary: Color(0xffBE9E49),
+                            backgroundColor: const Color(0xffBE9E49),
                             elevation: 0,
-                          )))
+                          ),
+                          child: const Text('CONFIRMAR')))
                 ],
               ),
             ),
@@ -833,12 +828,10 @@ class MyCustomFormState extends State<MyCustomForm> {
   }
 
   void onChanged(num value) {
-    if (value != null) {
-      if (value is int) {
-        setState(() {
-          numA = value;
-        });
-      }
+    if (value is int) {
+      setState(() {
+        numA = value;
+      });
     }
   }
 }

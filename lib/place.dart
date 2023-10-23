@@ -1,13 +1,7 @@
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'dart:async';
-import 'dart:developer';
-import 'package:invitacion/model/feedback.dart';
-import 'package:invitacion/controller/form_controller.dart';
-import 'package:flutter/material.dart';
 import 'package:map_launcher/map_launcher.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 // Create a Form widget.
@@ -37,11 +31,11 @@ class MyCustomPlace extends StatefulWidget {
 class MyCustomPlaceState extends State<MyCustomPlace> {
   void _openMaps() async {
     final availableMas = await MapLauncher.installedMaps;
-    availableMas.forEach((element) {
+    for (var element in availableMas) {
       print(element.icon);
       print(element.mapName);
       print(element.mapType);
-    });
+    }
     print(availableMas);
   }
 
@@ -56,14 +50,14 @@ class MyCustomPlaceState extends State<MyCustomPlace> {
     final screenHeight = MediaQuery.of(context).size.height;
     final screenWidth = MediaQuery.of(context).size.width;
     return Card(
-        shape: RoundedRectangleBorder(
+        shape: const RoundedRectangleBorder(
             side: BorderSide(
-          color: const Color(0xff69491e),
+          color: Color(0xff69491e),
         )),
         child: Container(
             width: screenWidth * 0.9,
-            decoration: BoxDecoration(
-              color: const Color.fromARGB(255, 236, 235, 231),
+            decoration: const BoxDecoration(
+              color: Color.fromARGB(255, 236, 235, 231),
             ),
             child: Column(
               children: [
@@ -105,15 +99,8 @@ class MyCustomPlaceState extends State<MyCustomPlace> {
                 ),
                 SizedBox(height: screenHeight * 0.03),
                 ElevatedButton(
-                  child: Text(
-                    "VER MAPA",
-                    style: GoogleFonts.cormorantGaramond(
-                        fontSize: screenHeight * 0.02,
-                        fontWeight: FontWeight.w400),
-                    textAlign: TextAlign.center,
-                  ),
                   style: ElevatedButton.styleFrom(
-                      primary: Color(0xff69491e),
+                      backgroundColor: const Color(0xff69491e),
                       elevation: 0,
                       shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(20.0))),
@@ -121,6 +108,13 @@ class MyCustomPlaceState extends State<MyCustomPlace> {
                     //_openMaps();
                     _launchUrl(widget.url);
                   },
+                  child: Text(
+                    "VER MAPA",
+                    style: GoogleFonts.cormorantGaramond(
+                        fontSize: screenHeight * 0.02,
+                        fontWeight: FontWeight.w400),
+                    textAlign: TextAlign.center,
+                  ),
                 ),
                 SizedBox(height: screenHeight * 0.02),
               ],

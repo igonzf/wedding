@@ -46,6 +46,8 @@ dependencies:
   flutter_number_picker: ^1.0.4
   numberpicker: ^2.1.2
   url_launcher: ^6.1.14
+  timelines: ^0.1.0
+  timeline_tile: ^2.0.0
 
 dev_dependencies:
   flutter_test:
