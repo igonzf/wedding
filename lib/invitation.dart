@@ -82,7 +82,7 @@ class _InvitationPageState extends State<InvitationPage>
   }
 
   void loadAudio() async {
-    await audioPlayer.play(DeviceFileSource('wedding/assets/music.mp3'));
+    await audioPlayer.play(DeviceFileSource('./assets/assets/music.mp3'));
     // Note: 'play' is used to start playing immediately, no need for 'setUrl' in this case
   }
 
