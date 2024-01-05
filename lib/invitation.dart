@@ -105,7 +105,7 @@ class _InvitationPageState extends State<InvitationPage>
         ReleaseMode.loop); // Para reproducir en bucle si es necesario
     audioPlayer.seek(Duration(
         seconds:
-            1)); // Asegúrate de que la reproducción comience desde el principio
+            2)); // Asegúrate de que la reproducción comience desde el principio
     audioPlayer.setVolume(1.0); // Ajusta el volumen según sea necesario
     audioPlayer.play(DeviceFileSource(
         './assets/assets/music.mp3')); // Note: 'play' is used to start playing immediately, no need for 'setUrl' in this case
@@ -848,6 +848,7 @@ class _InvitationPageState extends State<InvitationPage>
         ],
       ),
       floatingActionButton: FloatingActionButton(
+        foregroundColor: Colors.black,
         backgroundColor: const Color(0xff9ab4ac),
         onPressed: playPause,
         child: Icon(musicOn ? Icons.pause : Icons.music_note),

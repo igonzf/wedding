@@ -821,6 +821,8 @@ class MyCustomFormState extends State<MyCustomForm> {
                             }
                           },
                           style: ElevatedButton.styleFrom(
+                              textStyle: TextStyle(color: Colors.white),
+                              foregroundColor: Colors.white,
                               backgroundColor: const Color(0xff69491e),
                               elevation: 0,
                               shape: RoundedRectangleBorder(
