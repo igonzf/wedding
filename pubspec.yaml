@@ -93,6 +93,7 @@ flutter:
     - assets/sello.png
     - assets/sobrecerrado.jpeg
     - assets/sobre.png
+    - assets/music.mp3
   fonts:
       - family: Cinzel
         fonts:
