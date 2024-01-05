@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:invitacion/model/feedback.dart';
@@ -7,7 +6,8 @@ import 'package:flutter_number_picker/flutter_number_picker.dart';
 
 // Create a Form widget.
 class MyCustomForm extends StatefulWidget {
-  const MyCustomForm({Key? key}) : super(key: key);
+  final Function testFunction;
+  const MyCustomForm({required this.testFunction});
 
   @override
   MyCustomFormState createState() {
@@ -226,7 +226,8 @@ class MyCustomFormState extends State<MyCustomForm> {
                     height: screenHeight * 0.05,
                   ),
                   Align(
-                      child: _isAcompanianteSelected? Container(
+                      child: _isAcompanianteSelected
+                          ? Container(
                               child: Column(
                               children: [
                                 Align(
@@ -246,6 +247,8 @@ class MyCustomFormState extends State<MyCustomForm> {
                                         minValue: 1,
                                         maxValue: 3,
                                         step: 1,
+                                        customAddButton: Icon(Icons.add),
+                                        customMinusButton: Icon(Icons.remove),
                                         onValue: onChanged))
                               ],
                             ))
@@ -726,6 +729,7 @@ class MyCustomFormState extends State<MyCustomForm> {
                                   _foodController.clear();
                                   _isBusSelected = null;
                                   _isPrebodaSelected = null;
+                                  widget.testFunction(false);
                                 } else {
                                   ScaffoldMessenger.of(context).showSnackBar(
                                     const SnackBar(
@@ -796,8 +800,9 @@ class MyCustomFormState extends State<MyCustomForm> {
                                           .showSnackBar(
                                         const SnackBar(
                                             content: Text(
-                                                'Confirmación acompañante realizada correctamente')),
+                                                'Confirmación con acompañantes realizada correctamente')),
                                       );
+                                      widget.testFunction(false);
                                     } else {
                                       ScaffoldMessenger.of(context)
                                           .showSnackBar(
@@ -816,9 +821,10 @@ class MyCustomFormState extends State<MyCustomForm> {
                             }
                           },
                           style: ElevatedButton.styleFrom(
-                            backgroundColor: const Color(0xffBE9E49),
-                            elevation: 0,
-                          ),
+                              backgroundColor: const Color(0xff69491e),
+                              elevation: 0,
+                              shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(20.0))),
                           child: const Text('CONFIRMAR')))
                 ],
               ),

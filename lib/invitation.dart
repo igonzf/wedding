@@ -2,12 +2,16 @@ import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'dart:async';
+import 'package:visibility_detector/visibility_detector.dart';
 
 import 'package:invitacion/timeLeft.dart';
 import 'package:invitacion/form.dart';
 import 'package:invitacion/place.dart';
 import 'package:timeline_tile/timeline_tile.dart';
 import 'package:cupertino_icons/cupertino_icons.dart';
+import 'package:flutter_animate/flutter_animate.dart';
+import 'package:flutter_animate_on_scroll/flutter_animate_on_scroll.dart';
+import 'package:audioplayers/audioplayers.dart';
 
 class InvitationPage extends StatefulWidget {
   const InvitationPage({super.key, required this.title});
@@ -17,20 +21,27 @@ class InvitationPage extends StatefulWidget {
   _InvitationPageState createState() => _InvitationPageState();
 }
 
-class _InvitationPageState extends State<InvitationPage> {
+class _InvitationPageState extends State<InvitationPage>
+    with TickerProviderStateMixin {
   bool isClicked = false;
+  AudioPlayer audioPlayer = AudioPlayer();
+  bool musicOn = false;
   List<int> _timeUntil = List<int>.filled(4, 0);
   int index = 0;
   Timer? _timer;
   final scrollController = ScrollController();
+  AnimationController? _fraseAnimation;
+  AnimationController? _cuentaAnimation;
   final key1 = GlobalKey();
   final key2 = GlobalKey();
   final key3 = GlobalKey();
   final key4 = GlobalKey();
+  var keyform = GlobalKey();
   Offset position1 = Offset(0.0, 0.0);
   Offset position2 = Offset(0.0, 0.0);
   Offset position3 = Offset(0.0, 0.0);
   Offset position4 = Offset(0.0, 0.0);
+  Offset positionform = Offset(0.0, 0.0);
 
   void _startTimer() {
     _timer = Timer.periodic(const Duration(seconds: 1), (timer) {
@@ -41,31 +52,55 @@ class _InvitationPageState extends State<InvitationPage> {
   }
 
   void onListen() {
-    print('scrollController: ${scrollController.offset}');
+    //print('scrollController: ${scrollController.offset}');
     RenderBox box1 = key1.currentContext?.findRenderObject() as RenderBox;
     RenderBox box2 = key2.currentContext?.findRenderObject() as RenderBox;
     RenderBox box3 = key3.currentContext?.findRenderObject() as RenderBox;
     RenderBox box4 = key4.currentContext?.findRenderObject() as RenderBox;
+
     position1 = box1.localToGlobal(Offset.zero);
     position2 = box2.localToGlobal(Offset.zero);
     position3 = box3.localToGlobal(Offset.zero);
     position4 = box4.localToGlobal(Offset.zero);
-    print('p1: ${position1.dy}');
-    print('p2: ${position2.dy}');
-    print('p3: ${position3.dy}');
-    print('p4: ${position4.dy}');
+
+    //print('p1: ${position1.dy}');
+    //print('p2: ${position2.dy}');
+    //print('p3: ${position3.dy}');
+    //print('p4: ${position4.dy}');
+
+    /* RenderBox boxform = keyform.currentContext?.findRenderObject() as RenderBox;
+    positionform = boxform.localToGlobal(Offset.zero);
+    print('form: ${positionform.dy}'); */
   }
 
   @override
   void initState() {
     scrollController.addListener(onListen);
     super.initState();
+    loadAudio();
     _startTimer();
+  }
+
+  void loadAudio() async {
+    await audioPlayer.play(DeviceFileSource('assets/music.mp3'));
+    // Note: 'play' is used to start playing immediately, no need for 'setUrl' in this case
+  }
+
+  void playPause() {
+    if (musicOn) {
+      audioPlayer.pause();
+    } else {
+      audioPlayer.resume(); // Resume if paused, in case it was paused before
+    }
+    setState(() {
+      musicOn = !musicOn;
+    });
   }
 
   @override
   void dispose() {
     scrollController.removeListener(onListen);
+    audioPlayer.dispose();
     super.dispose();
   }
 
@@ -93,49 +128,64 @@ class _InvitationPageState extends State<InvitationPage> {
                       children: [
                     Text(
                       'NOS CASAMOS',
-                      style: GoogleFonts.cinzel(
+                      style: TextStyle(
+                          fontFamily: 'Cinzel',
                           fontSize: screenHeight * 0.03,
                           letterSpacing: 4.0,
                           fontWeight: FontWeight.w500),
                       textAlign: TextAlign.center,
-                    ),
+                    )
+                        .animate(autoPlay: true)
+                        .scale(duration: Duration(seconds: 3)),
                     const SizedBox(
                       height: 50.0,
                     ),
                     Text(
                       'Bárbara',
-                      style: GoogleFonts.greatVibes(
+                      style: TextStyle(
+                          fontFamily: 'GreatVibes',
                           fontSize: screenHeight * 0.10,
                           fontWeight: FontWeight.w400),
                       textAlign: TextAlign.center,
-                    ),
+                    )
+                        .animate(autoPlay: true)
+                        .slideX(begin: 2.0, duration: Duration(seconds: 3)),
                     Text(
                       'y',
-                      style: GoogleFonts.greatVibes(
+                      style: TextStyle(
+                        fontFamily: 'GreatVibes',
                         fontSize: screenHeight * 0.10,
                         fontWeight: FontWeight.w400,
                       ),
                       textAlign: TextAlign.center,
-                    ),
+                    )
+                        .animate(autoPlay: true)
+                        .scale(duration: Duration(seconds: 3)),
                     Text(
                       'Santi',
-                      style: GoogleFonts.greatVibes(
+                      style: TextStyle(
+                          fontFamily: 'GreatVibes',
                           fontSize: screenHeight * 0.10,
                           fontWeight: FontWeight.w400),
                       textAlign: TextAlign.center,
-                    ),
+                    )
+                        .animate(autoPlay: true)
+                        .slideX(begin: -2.0, duration: Duration(seconds: 3)),
                     const SizedBox(
                       height: 50.0,
                     ),
                     Text(
                       '22 DE JUNIO DE 2024',
-                      style: GoogleFonts.cinzel(
+                      style: TextStyle(
+                          fontFamily: 'Cinzel',
                           fontSize: screenHeight * 0.03,
                           letterSpacing: 4.0,
                           fontWeight: FontWeight.w500),
                       maxLines: 1,
                       textAlign: TextAlign.center,
-                    ),
+                    )
+                        .animate(autoPlay: true)
+                        .scale(duration: Duration(seconds: 3)),
                   ])),
             ]),
           )),
@@ -143,135 +193,183 @@ class _InvitationPageState extends State<InvitationPage> {
             child: Container(
                 height: screenHeight * 0.3,
                 color: const Color(0xff9ab4ac),
-                child: Padding(
-                    padding: const EdgeInsets.all(16.0),
-                    child: Center(
-                        child: Column(
-                      children: [
-                        const Spacer(),
-                        Text(
-                          'O amor é como o vento, non se ve, pero sérvese para guiar o barco da vida.',
-                          style: GoogleFonts.cormorantGaramond(
-                              fontSize: screenHeight * 0.03,
-                              fontWeight: FontWeight.w400,
-                              color: Colors.white),
-                          textAlign: TextAlign.center,
-                        ),
-                        const Spacer(),
-                        const Icon(
-                          CupertinoIcons.heart_fill,
-                          color: Colors.white,
-                          size: 15,
-                        ),
-                        const Spacer()
-                      ],
-                    )))),
+                child: VisibilityDetector(
+                    key: Key('frasecita'),
+                    onVisibilityChanged: (visibilityInfo) {
+                      setState(() {
+                        // Change the flag value of _isVisible
+                        // If it is greater than 0 means it is visible
+                        //_isVisible = visibilityInfo.visibleFraction > 0;
+
+                        // It will show how much percentage the widget is visible
+                        var visiblePercentage =
+                            visibilityInfo.visibleFraction * 100;
+
+                        print(
+                            'Widget ${visibilityInfo.key} is ${visiblePercentage}% visible');
+
+                        if (visiblePercentage == 100) {
+                          _fraseAnimation?.forward();
+                        }
+                      });
+                    },
+                    child: Padding(
+                        padding: const EdgeInsets.all(16.0),
+                        child: Center(
+                            child: Column(
+                          children: [
+                            const Spacer(),
+                            Text(
+                              'O amor é como o vento, non se ve, pero sérvese para guiar o barco da vida.',
+                              style: GoogleFonts.cormorantGaramond(
+                                  fontSize: screenHeight * 0.03,
+                                  fontWeight: FontWeight.w400,
+                                  color: Colors.white),
+                              textAlign: TextAlign.center,
+                            )
+                                .animate(
+                                    autoPlay: false,
+                                    onInit: (c) => _fraseAnimation = c)
+                                .scale(duration: Duration(seconds: 2)),
+                            const Spacer(),
+                            const Icon(
+                              CupertinoIcons.heart_fill,
+                              color: Colors.white,
+                              size: 15,
+                            ),
+                            const Spacer()
+                          ],
+                        ))))),
           ),
           SliverToBoxAdapter(
-            child: SizedBox(
-                height: screenHeight * 0.6,
-                width: screenWidth,
-                child: Stack(children: <Widget>[
-                  Image.asset(
-                    'assets/cuenta3.jpg',
-                    width: double.infinity,
-                    fit: BoxFit.cover,
-                  ),
-                  Center(
-                      child: Column(
-                    children: [
-                      const Spacer(),
-                      Text('Faltan',
-                          style: GoogleFonts.cormorantGaramond(
-                              fontSize: screenHeight * 0.05,
-                              fontWeight: FontWeight.w400),
-                          textAlign: TextAlign.center),
-                      Row(
+            child: VisibilityDetector(
+                key: Key('cuenta'),
+                onVisibilityChanged: (visibilityInfoCuenta) {
+                  setState(() {
+                    // Change the flag value of _isVisible
+                    // If it is greater than 0 means it is visible
+                    //_isVisible = visibilityInfo.visibleFraction > 0;
+
+                    // It will show how much percentage the widget is visible
+                    var visiblePercentageCuenta =
+                        visibilityInfoCuenta.visibleFraction * 100;
+
+                    print(
+                        'Widget ${visibilityInfoCuenta.key} is ${visiblePercentageCuenta}% visible');
+
+                    if (visiblePercentageCuenta == 100) {
+                      _cuentaAnimation?.forward();
+                    }
+                  });
+                },
+                child: SizedBox(
+                    height: screenHeight * 0.6,
+                    width: screenWidth,
+                    child: Stack(children: <Widget>[
+                      Image.asset(
+                        'assets/cuenta3.jpg',
+                        width: double.infinity,
+                        fit: BoxFit.cover,
+                      ),
+                      Center(
+                          child: Column(
                         children: [
                           const Spacer(),
-                          Column(
+                          Text('Faltan',
+                              style: GoogleFonts.cormorantGaramond(
+                                  fontSize: screenHeight * 0.05,
+                                  fontWeight: FontWeight.w400),
+                              textAlign: TextAlign.center),
+                          Row(
                             children: [
-                              Text(_timeUntil[0].toString(),
-                                  style: GoogleFonts.cormorantGaramond(
-                                      fontSize: screenHeight * 0.07,
-                                      fontWeight: FontWeight.w400),
-                                  textAlign: TextAlign.center),
-                              SizedBox(
-                                width: screenWidth * 0.22,
-                                child: Text("Días",
-                                    style: GoogleFonts.cormorantGaramond(
-                                        fontSize: screenHeight * 0.025,
-                                        fontWeight: FontWeight.w400),
-                                    textAlign: TextAlign.center),
-                              )
+                              const Spacer(),
+                              Column(
+                                children: [
+                                  Text(_timeUntil[0].toString(),
+                                      style: GoogleFonts.cormorantGaramond(
+                                          fontSize: screenHeight * 0.07,
+                                          fontWeight: FontWeight.w400),
+                                      textAlign: TextAlign.center),
+                                  SizedBox(
+                                    width: screenWidth * 0.22,
+                                    child: Text("Días",
+                                        style: GoogleFonts.cormorantGaramond(
+                                            fontSize: screenHeight * 0.025,
+                                            fontWeight: FontWeight.w400),
+                                        textAlign: TextAlign.center),
+                                  )
+                                ],
+                              ),
+                              Column(
+                                children: [
+                                  Text(_timeUntil[1].toString(),
+                                      style: GoogleFonts.cormorantGaramond(
+                                          fontSize: screenHeight * 0.07,
+                                          fontWeight: FontWeight.w400),
+                                      textAlign: TextAlign.center),
+                                  SizedBox(
+                                    width: screenWidth * 0.22,
+                                    child: Text("Horas",
+                                        style: GoogleFonts.cormorantGaramond(
+                                            fontSize: screenHeight * 0.025,
+                                            fontWeight: FontWeight.w400),
+                                        textAlign: TextAlign.center),
+                                  )
+                                ],
+                              ),
+                              Column(
+                                children: [
+                                  Text(_timeUntil[2].toString(),
+                                      style: GoogleFonts.cormorantGaramond(
+                                          fontSize: screenHeight * 0.07,
+                                          fontWeight: FontWeight.w400),
+                                      textAlign: TextAlign.center),
+                                  SizedBox(
+                                    width: screenWidth * 0.22,
+                                    child: Text("Minutos",
+                                        style: GoogleFonts.cormorantGaramond(
+                                            fontSize: screenHeight * 0.025,
+                                            fontWeight: FontWeight.w400),
+                                        textAlign: TextAlign.center),
+                                  )
+                                ],
+                              ),
+                              Column(
+                                children: [
+                                  Text(_timeUntil[3].toString(),
+                                      style: GoogleFonts.cormorantGaramond(
+                                          fontSize: screenHeight * 0.07,
+                                          fontWeight: FontWeight.w400),
+                                      textAlign: TextAlign.center),
+                                  SizedBox(
+                                    width: screenWidth * 0.22,
+                                    child: Text("Segundos",
+                                        style: GoogleFonts.cormorantGaramond(
+                                            fontSize: screenHeight * 0.025,
+                                            fontWeight: FontWeight.w400),
+                                        textAlign: TextAlign.center),
+                                  )
+                                ],
+                              ),
+                              const Spacer()
                             ],
+                          )
+                              .animate(
+                                  autoPlay: false,
+                                  onInit: (cr) => _cuentaAnimation = cr)
+                              .scale(duration: Duration(seconds: 2)),
+                          const SizedBox(
+                            height: 20.0,
                           ),
-                          Column(
-                            children: [
-                              Text(_timeUntil[1].toString(),
-                                  style: GoogleFonts.cormorantGaramond(
-                                      fontSize: screenHeight * 0.07,
-                                      fontWeight: FontWeight.w400),
-                                  textAlign: TextAlign.center),
-                              SizedBox(
-                                width: screenWidth * 0.22,
-                                child: Text("Horas",
-                                    style: GoogleFonts.cormorantGaramond(
-                                        fontSize: screenHeight * 0.025,
-                                        fontWeight: FontWeight.w400),
-                                    textAlign: TextAlign.center),
-                              )
-                            ],
-                          ),
-                          Column(
-                            children: [
-                              Text(_timeUntil[2].toString(),
-                                  style: GoogleFonts.cormorantGaramond(
-                                      fontSize: screenHeight * 0.07,
-                                      fontWeight: FontWeight.w400),
-                                  textAlign: TextAlign.center),
-                              SizedBox(
-                                width: screenWidth * 0.22,
-                                child: Text("Minutos",
-                                    style: GoogleFonts.cormorantGaramond(
-                                        fontSize: screenHeight * 0.025,
-                                        fontWeight: FontWeight.w400),
-                                    textAlign: TextAlign.center),
-                              )
-                            ],
-                          ),
-                          Column(
-                            children: [
-                              Text(_timeUntil[3].toString(),
-                                  style: GoogleFonts.cormorantGaramond(
-                                      fontSize: screenHeight * 0.07,
-                                      fontWeight: FontWeight.w400),
-                                  textAlign: TextAlign.center),
-                              SizedBox(
-                                width: screenWidth * 0.22,
-                                child: Text("Segundos",
-                                    style: GoogleFonts.cormorantGaramond(
-                                        fontSize: screenHeight * 0.025,
-                                        fontWeight: FontWeight.w400),
-                                    textAlign: TextAlign.center),
-                              )
-                            ],
-                          ),
+                          Text('para nuestra boda',
+                              style: GoogleFonts.cormorantGaramond(
+                                  fontSize: screenHeight * 0.05,
+                                  fontWeight: FontWeight.w400),
+                              textAlign: TextAlign.center),
                           const Spacer()
                         ],
-                      ),
-                      const SizedBox(
-                        height: 20.0,
-                      ),
-                      Text('para nuestra boda',
-                          style: GoogleFonts.cormorantGaramond(
-                              fontSize: screenHeight * 0.05,
-                              fontWeight: FontWeight.w400),
-                          textAlign: TextAlign.center),
-                      const Spacer()
-                    ],
-                  )),
-                ])),
+                      )),
+                    ]))),
           ),
           //timeline
           SliverToBoxAdapter(
@@ -299,7 +397,7 @@ class _InvitationPageState extends State<InvitationPage> {
                         axis: TimelineAxis.vertical,
                         indicatorStyle: IndicatorStyle(
                           color: position1.dy >= 150
-                              ? Color(0xff69491e)
+                              ? Color.fromARGB(255, 131, 104, 70)
                               : Colors.black,
                           height: screenHeight * 0.05,
                           width: screenWidth * 0.08,
@@ -312,7 +410,7 @@ class _InvitationPageState extends State<InvitationPage> {
                         afterLineStyle: LineStyle(
                             color: position1.dy < 150
                                 ? Colors.black
-                                : Color(0xff69491e)),
+                                : Color.fromARGB(255, 131, 104, 70)),
                         alignment: TimelineAlign.center,
                         startChild: Row(
                             crossAxisAlignment: CrossAxisAlignment.end,
@@ -324,7 +422,7 @@ class _InvitationPageState extends State<InvitationPage> {
                                   fontSize: screenHeight * 0.03,
                                   fontWeight: FontWeight.w400,
                                   color: position1.dy > 150
-                                      ? Color(0xff69491e)
+                                      ? Color.fromARGB(255, 131, 104, 70)
                                       : Colors.black,
                                 ),
                               ),
@@ -351,7 +449,7 @@ class _InvitationPageState extends State<InvitationPage> {
                                         fontSize: screenHeight * 0.03,
                                         fontWeight: FontWeight.w400,
                                         color: position1.dy > 150
-                                            ? Color(0xff69491e)
+                                            ? Color.fromARGB(255, 131, 104, 70)
                                             : Colors.black),
                                   ),
                                   Image.asset(
@@ -370,7 +468,7 @@ class _InvitationPageState extends State<InvitationPage> {
                         axis: TimelineAxis.vertical,
                         indicatorStyle: IndicatorStyle(
                           color: position2.dy >= 150
-                              ? Color(0xff69491e)
+                              ? Color.fromARGB(255, 131, 104, 70)
                               : Colors.black,
                           height: screenHeight * 0.08,
                           width: screenWidth * 0.08,
@@ -382,11 +480,11 @@ class _InvitationPageState extends State<InvitationPage> {
                         beforeLineStyle: LineStyle(
                             color: position2.dy < 200
                                 ? Colors.black
-                                : Color(0xff69491e)),
+                                : Color.fromARGB(255, 131, 104, 70)),
                         afterLineStyle: LineStyle(
                             color: position2.dy < 150
                                 ? Colors.black
-                                : Color(0xff69491e)),
+                                : Color.fromARGB(255, 131, 104, 70)),
                         alignment: TimelineAlign.center,
                         startChild: Row(
                             crossAxisAlignment: CrossAxisAlignment.end,
@@ -398,7 +496,7 @@ class _InvitationPageState extends State<InvitationPage> {
                                     fontSize: screenHeight * 0.03,
                                     fontWeight: FontWeight.w400,
                                     color: position2.dy > 150
-                                        ? Color(0xff69491e)
+                                        ? Color.fromARGB(255, 131, 104, 70)
                                         : Colors.black),
                               ),
                               SizedBox(
@@ -424,7 +522,7 @@ class _InvitationPageState extends State<InvitationPage> {
                                         fontSize: screenHeight * 0.03,
                                         fontWeight: FontWeight.w400,
                                         color: position2.dy > 150
-                                            ? Color(0xff69491e)
+                                            ? Color.fromARGB(255, 131, 104, 70)
                                             : Colors.black),
                                   ),
                                   Text(
@@ -433,7 +531,7 @@ class _InvitationPageState extends State<InvitationPage> {
                                         fontSize: screenHeight * 0.03,
                                         fontWeight: FontWeight.w400,
                                         color: position2.dy > 150
-                                            ? Color(0xff69491e)
+                                            ? Color.fromARGB(255, 131, 104, 70)
                                             : Colors.black),
                                   ),
                                   Image.asset(
@@ -452,7 +550,7 @@ class _InvitationPageState extends State<InvitationPage> {
                         axis: TimelineAxis.vertical,
                         indicatorStyle: IndicatorStyle(
                           color: position3.dy >= 150
-                              ? Color(0xff69491e)
+                              ? Color.fromARGB(255, 131, 104, 70)
                               : Colors.black,
                           height: screenHeight * 0.08,
                           width: screenWidth * 0.08,
@@ -464,11 +562,11 @@ class _InvitationPageState extends State<InvitationPage> {
                         beforeLineStyle: LineStyle(
                             color: position3.dy < 200
                                 ? Colors.black
-                                : Color(0xff69491e)),
+                                : Color.fromARGB(255, 131, 104, 70)),
                         afterLineStyle: LineStyle(
                             color: position3.dy < 150
                                 ? Colors.black
-                                : Color(0xff69491e)),
+                                : Color.fromARGB(255, 131, 104, 70)),
                         alignment: TimelineAlign.center,
                         startChild: Row(
                             crossAxisAlignment: CrossAxisAlignment.end,
@@ -480,7 +578,7 @@ class _InvitationPageState extends State<InvitationPage> {
                                     fontSize: screenHeight * 0.03,
                                     fontWeight: FontWeight.w400,
                                     color: position3.dy > 150
-                                        ? Color(0xff69491e)
+                                        ? Color.fromARGB(255, 131, 104, 70)
                                         : Colors.black),
                               ),
                               SizedBox(
@@ -506,7 +604,7 @@ class _InvitationPageState extends State<InvitationPage> {
                                       fontSize: screenHeight * 0.03,
                                       fontWeight: FontWeight.w400,
                                       color: position3.dy > 150
-                                          ? Color(0xff69491e)
+                                          ? Color.fromARGB(255, 131, 104, 70)
                                           : Colors.black,
                                     ),
                                   ),
@@ -526,7 +624,7 @@ class _InvitationPageState extends State<InvitationPage> {
                         axis: TimelineAxis.vertical,
                         indicatorStyle: IndicatorStyle(
                           color: position4.dy >= 150
-                              ? Color(0xff69491e)
+                              ? Color.fromARGB(255, 131, 104, 70)
                               : Colors.black,
                           height: screenHeight * 0.08,
                           width: screenWidth * 0.08,
@@ -539,7 +637,7 @@ class _InvitationPageState extends State<InvitationPage> {
                         beforeLineStyle: LineStyle(
                             color: position4.dy < 200
                                 ? Colors.black
-                                : Color(0xff69491e)),
+                                : Color.fromARGB(255, 131, 104, 70)),
                         alignment: TimelineAlign.center,
                         startChild: Row(
                             crossAxisAlignment: CrossAxisAlignment.end,
@@ -551,7 +649,7 @@ class _InvitationPageState extends State<InvitationPage> {
                                     fontSize: screenHeight * 0.03,
                                     fontWeight: FontWeight.w400,
                                     color: position4.dy > 150
-                                        ? Color(0xff69491e)
+                                        ? Color.fromARGB(255, 131, 104, 70)
                                         : Colors.black),
                               ),
                               SizedBox(
@@ -577,7 +675,7 @@ class _InvitationPageState extends State<InvitationPage> {
                                         fontSize: screenHeight * 0.03,
                                         fontWeight: FontWeight.w400,
                                         color: position4.dy > 150
-                                            ? Color(0xff69491e)
+                                            ? Color.fromARGB(255, 131, 104, 70)
                                             : Colors.black),
                                   ),
                                   Image.asset(
@@ -608,17 +706,17 @@ class _InvitationPageState extends State<InvitationPage> {
                 const MyCustomPlace(
                   event: "Preboda",
                   namePlace: "Casa de la novia",
-                  hour: "19:00h",
+                  hour: "Viernes 21 a las 19:00h",
                   location: "Grulleros",
                   image: "assets/Preboda.jpg",
                   url:
-                      'https://www.google.com/maps/place/C.+Real,+Grulleros,+Le%C3%B3n/@42.4987298,-5.5494287,17z/data=!3m1!4b1!4m6!3m5!1s0xd3788c417653c31:0xe0be641003e41dc5!8m2!3d42.4987298!4d-5.5468538!16s%2Fg%2F1v2jf5yl?entry=ttu',
+                      'https://www.google.es/maps/place/Tr.%C2%AA+Estanco,+382,+24346+Vega+de+Infanzones,+Le%C3%B3n/@42.5020592,-5.54997,54m/data=!3m1!1e3!4m17!1m10!4m9!1m3!2m2!1d-5.5498922!2d42.5022416!1m3!2m2!1d-5.5499008!2d42.502223!3e2!3m5!1s0xd378f4e49a18dab:0x384413e23ed0dc08!8m2!3d42.5021785!4d-5.5498407!16s%2Fg%2F11c27fcm05?entry=ttu',
                 ),
                 SizedBox(height: screenHeight * 0.02),
                 const MyCustomPlace(
                   event: "Ceremonia Religiosa",
                   namePlace: "Catedral de Léon",
-                  hour: "13:00h",
+                  hour: "13:00h\n(llegar a las 12:45h\ny esperar dentro)",
                   location: "Calle Ancha",
                   image: "assets/catedral.jpeg",
                   url:
@@ -636,197 +734,65 @@ class _InvitationPageState extends State<InvitationPage> {
                 )
               ],
             ),
-          ))
-          /* SizedBox(
-                      height: screenHeight * 0.05,
-                    ),
-                    Padding(
-                        padding: EdgeInsets.all(20.0),
-                        child: Center(
-                            child: Text(
-                          'Te compartimos los detalles de la celebración',
-                          style: GoogleFonts.cormorantGaramond(
-                              fontSize: screenHeight * 0.03,
-                              fontWeight: FontWeight.w400),
-                          textAlign: TextAlign.center,
-                        ))),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      children: [
-                        SizedBox(
-                          width: screenWidth * 0.2,
-                        ),
-                        Column(
-                          children: [
-                            Icon(
-                              CupertinoIcons.heart_circle_fill,
-                              color: Colors.black,
-                              size: screenHeight * 0.06,
-                            ),
-                          ],
-                        ),
-                        SizedBox(width: screenWidth * 0.04),
-                        Column(
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              '19:00h',
-                              style: GoogleFonts.cormorantGaramond(
-                                  fontSize: screenHeight * 0.03,
-                                  fontWeight: FontWeight.w400),
-                            ),
-                            Text(
-                              'Preboda',
-                              style: GoogleFonts.cormorantGaramond(
-                                  fontSize: screenHeight * 0.04,
-                                  fontWeight: FontWeight.w400),
-                            ),
-                            Image.asset(
-                              'assets/cocktailicon.png',
-                              width: screenWidth * 0.2,
-                              fit: BoxFit.cover,
-                            )
-                          ],
-                        )
-                      ],
-                    ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      children: [
-                        SizedBox(
-                          width: screenWidth * 0.2,
-                        ),
-                        Icon(
-                          CupertinoIcons.heart_circle_fill,
-                          color: Colors.black,
-                          size: screenHeight * 0.06,
-                        ),
-                        SizedBox(width: screenWidth * 0.04),
-                        Column(
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              '13:00h',
-                              style: GoogleFonts.cormorantGaramond(
-                                  fontSize: screenHeight * 0.03,
-                                  fontWeight: FontWeight.w400),
-                            ),
-                            Text(
-                              'Ceremonia',
-                              style: GoogleFonts.cormorantGaramond(
-                                  fontSize: screenHeight * 0.04,
-                                  fontWeight: FontWeight.w400),
-                            ),
-                            Text(
-                              'Religiosa',
-                              style: GoogleFonts.cormorantGaramond(
-                                  fontSize: screenHeight * 0.04,
-                                  fontWeight: FontWeight.w400),
-                            ),
-                            Image.asset(
-                              'assets/iglesiaicon.png',
-                              width: screenWidth * 0.2,
-                              fit: BoxFit.cover,
-                            )
-                          ],
-                        )
-                      ],
-                    ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      children: [
-                        SizedBox(
-                          width: screenWidth * 0.2,
-                        ),
-                        Icon(
-                          CupertinoIcons.heart_circle_fill,
-                          color: Colors.black,
-                          size: screenHeight * 0.06,
-                        ),
-                        SizedBox(width: screenWidth * 0.04),
-                        Column(
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              '14:45h',
-                              style: GoogleFonts.cormorantGaramond(
-                                  fontSize: screenHeight * 0.03,
-                                  fontWeight: FontWeight.w400),
-                            ),
-                            Text(
-                              'Celebración',
-                              style: GoogleFonts.cormorantGaramond(
-                                  fontSize: screenHeight * 0.04,
-                                  fontWeight: FontWeight.w400),
-                            ),
-                            Image.asset(
-                              'assets/restauranteicon.png',
-                              width: screenWidth * 0.2,
-                              fit: BoxFit.cover,
-                            )
-                          ],
-                        )
-                      ],
-                    ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      children: [
-                        SizedBox(
-                          width: screenWidth * 0.2,
-                        ),
-                        Icon(
-                          CupertinoIcons.heart_circle_fill,
-                          color: Colors.black,
-                          size: screenHeight * 0.06,
-                        ),
-                        SizedBox(width: screenWidth * 0.04),
-                        Column(
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              '22:00h',
-                              style: GoogleFonts.cormorantGaramond(
-                                  fontSize: screenHeight * 0.03,
-                                  fontWeight: FontWeight.w400),
-                            ),
-                            Text(
-                              'Fiesta',
-                              style: GoogleFonts.cormorantGaramond(
-                                  fontSize: screenHeight * 0.04,
-                                  fontWeight: FontWeight.w400),
-                            ),
-                            Image.asset(
-                              'assets/fiestaicon.png',
-                              width: screenWidth * 0.2,
-                              fit: BoxFit.cover,
-                            )
-                          ],
-                        )
-                      ],
-                    ) */
-          ,
+          )),
           SliverToBoxAdapter(
-              child: SizedBox(
-                  height: screenHeight * 0.1,
-                  width: screenWidth,
-                  child: Center(
-                      child: SizedBox(
-                          width: screenHeight * 0.8,
-                          height: double.infinity,
-                          child: ElevatedButton(
-                            style: ElevatedButton.styleFrom(
-                              backgroundColor: const Color(0xffBE9E49),
-                              elevation: 0,
-                            ),
-                            onPressed: () {
-                              isClicked = !isClicked;
-                            },
-                            child: const Text("CONFIRMAR ASISTENCIA"),
-                          ))))),
+              child: !isClicked
+                  ? SizedBox(
+                      width: screenWidth,
+                      child: Column(children: [
+                        SizedBox(height: screenHeight * 0.05),
+                        Card(
+                          shape: const RoundedRectangleBorder(
+                              side: BorderSide(
+                            color: Color(0xff69491e),
+                          )),
+                          child: Container(
+                              width: screenWidth * 0.9,
+                              decoration: const BoxDecoration(
+                                color: Color(0xff69491e),
+                              ),
+                              child: Padding(
+                                  padding: const EdgeInsets.all(16.0),
+                                  child: Center(
+                                      child: Column(
+                                    children: [
+                                      Text(
+                                        '¡Queremos compartir este día tan especial contigo!\n\nPor favor, dedica unos minutos para confirmar tu asistencia.\nHaz clic en el botón y completa tus datos.\n\n¡Esperamos verte en la boda!',
+                                        style: GoogleFonts.cormorantGaramond(
+                                            fontSize: screenHeight * 0.03,
+                                            fontWeight: FontWeight.w400,
+                                            color: Color.fromARGB(
+                                                255, 236, 235, 231)),
+                                        textAlign: TextAlign.center,
+                                      ),
+                                      SizedBox(height: screenHeight * 0.03),
+                                      ElevatedButton(
+                                        style: ElevatedButton.styleFrom(
+                                          backgroundColor: Color.fromARGB(
+                                              255, 236, 235, 231),
+                                          elevation: 0,
+                                        ),
+                                        onPressed: () {
+                                          isClicked = !isClicked;
+                                          /* scrollController.animateTo(
+                                              scrollController.offset +
+                                                  positionform.dy * 2,
+                                              duration:
+                                                  Duration(milliseconds: 1000),
+                                              curve: Curves.ease); */
+                                        },
+                                        child: Text(
+                                          'CONFIRMAR ASISTENCIA ',
+                                          style: GoogleFonts.cormorantGaramond(
+                                              color: Color(0xff69491e)),
+                                        ),
+                                      )
+                                    ],
+                                  )))),
+                        ),
+                        SizedBox(height: screenHeight * 0.05)
+                      ]))
+                  : SizedBox()),
           SliverToBoxAdapter(
               child: isClicked
                   ? Container(
@@ -835,11 +801,21 @@ class _InvitationPageState extends State<InvitationPage> {
                       SizedBox(
                         height: screenHeight * 0.05,
                       ),
-                      const MyCustomForm()
+                      MyCustomForm(testFunction: testFunction)
                     ])))
                   : Container())
         ],
       ),
+      floatingActionButton: FloatingActionButton(
+        backgroundColor: const Color(0xff9ab4ac),
+        onPressed: playPause,
+        child: Icon(musicOn ? Icons.pause : Icons.music_note),
+      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.miniEndFloat,
     );
+  }
+
+  testFunction(bool checkValue) {
+    isClicked = checkValue;
   }
 }

@@ -28,20 +28,30 @@ class MyHomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text(title),
-      ),
-      body: Center(
-        child: FloatingActionButton(
-          onPressed: () {
-            Navigator.push(context, MaterialPageRoute(builder: (context) {
-              return const InvitationPage(title: 'InvitationPage');
-            }));
-          },
-          tooltip: 'open invitation',
-          child: const Icon(Icons.open_in_new),
+      body: Stack(children: <Widget>[
+        Image.asset(
+          'assets/sobre.png',
+          width: double.infinity,
+          height: double.infinity,
+          fit: BoxFit.fill,
+          alignment: Alignment.center,
         ),
-      ),
+        Center(
+          child: FloatingActionButton(
+            backgroundColor: Colors.blueGrey.withOpacity(0.0),
+            onPressed: () {
+              Navigator.push(context, MaterialPageRoute(builder: (context) {
+                return const InvitationPage(title: 'InvitationPage');
+              }));
+            },
+            tooltip: 'open invitation',
+            child: Image.asset(
+              'assets/sello.png',
+              scale: 0.8,
+            ),
+          ),
+        )
+      ]),
     );
   }
 }
