@@ -113,6 +113,7 @@ class MyCustomPlaceState extends State<MyCustomPlace> {
                     style: GoogleFonts.cormorantGaramond(
                         fontSize: screenHeight * 0.02,
                         fontWeight: FontWeight.w400),
+                    selectionColor: Colors.white,
                     textAlign: TextAlign.center,
                   ),
                 ),

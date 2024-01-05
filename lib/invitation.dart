@@ -12,6 +12,11 @@ import 'package:cupertino_icons/cupertino_icons.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_animate_on_scroll/flutter_animate_on_scroll.dart';
 import 'package:audioplayers/audioplayers.dart';
+import 'package:flutter_animated_icons/flutter_animated_icons.dart';
+import 'package:flutter_animated_icons/icons8.dart';
+import 'package:flutter_animated_icons/lottiefiles.dart';
+import 'package:flutter_animated_icons/useanimations.dart';
+import 'package:lottie/lottie.dart';
 
 class InvitationPage extends StatefulWidget {
   const InvitationPage({super.key, required this.title});
@@ -25,13 +30,15 @@ class _InvitationPageState extends State<InvitationPage>
     with TickerProviderStateMixin {
   bool isClicked = false;
   AudioPlayer audioPlayer = AudioPlayer();
-  bool musicOn = false;
+  bool musicOn = true;
+  bool animationFinished = false;
   List<int> _timeUntil = List<int>.filled(4, 0);
   int index = 0;
   Timer? _timer;
   final scrollController = ScrollController();
   AnimationController? _fraseAnimation;
   AnimationController? _cuentaAnimation;
+  AnimationController? _slideDown;
   final key1 = GlobalKey();
   final key2 = GlobalKey();
   final key3 = GlobalKey();
@@ -51,8 +58,17 @@ class _InvitationPageState extends State<InvitationPage>
     });
   }
 
+  void _finishAnimation() {
+    setState(() {
+      animationFinished = false;
+    });
+  }
+
   void onListen() {
     //print('scrollController: ${scrollController.offset}');
+    if (scrollController.offset > 0.0) {
+      _finishAnimation();
+    }
     RenderBox box1 = key1.currentContext?.findRenderObject() as RenderBox;
     RenderBox box2 = key2.currentContext?.findRenderObject() as RenderBox;
     RenderBox box3 = key3.currentContext?.findRenderObject() as RenderBox;
@@ -79,11 +95,20 @@ class _InvitationPageState extends State<InvitationPage>
     super.initState();
     loadAudio();
     _startTimer();
+    _slideDown =
+        AnimationController(vsync: this, duration: const Duration(seconds: 1));
   }
 
   void loadAudio() async {
-    await audioPlayer.play(DeviceFileSource('./assets/assets/music.mp3'));
-    // Note: 'play' is used to start playing immediately, no need for 'setUrl' in this case
+    await audioPlayer.setSource(DeviceFileSource('assets/music.mp3'));
+    audioPlayer.setReleaseMode(
+        ReleaseMode.loop); // Para reproducir en bucle si es necesario
+    audioPlayer.seek(Duration(
+        seconds:
+            1)); // Asegúrate de que la reproducción comience desde el principio
+    audioPlayer.setVolume(1.0); // Ajusta el volumen según sea necesario
+    audioPlayer.play(DeviceFileSource(
+        'assets/music.mp3')); // Note: 'play' is used to start playing immediately, no need for 'setUrl' in this case
   }
 
   void playPause() {
@@ -169,7 +194,10 @@ class _InvitationPageState extends State<InvitationPage>
                           fontWeight: FontWeight.w400),
                       textAlign: TextAlign.center,
                     )
-                        .animate(autoPlay: true)
+                        .animate(
+                            autoPlay: true,
+                            onComplete: (controller) =>
+                                animationFinished = !animationFinished)
                         .slideX(begin: -2.0, duration: Duration(seconds: 3)),
                     const SizedBox(
                       height: 50.0,
@@ -187,6 +215,19 @@ class _InvitationPageState extends State<InvitationPage>
                         .animate(autoPlay: true)
                         .scale(duration: Duration(seconds: 3)),
                   ])),
+              animationFinished
+                  ? Align(
+                      alignment: Alignment.bottomCenter,
+                      child: Opacity(
+                          opacity: 0.2,
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Lottie.asset(Icons8.down_arrow_win10,
+                                  height: screenHeight * 0.09)
+                            ],
+                          )))
+                  : Align(),
             ]),
           )),
           SliverToBoxAdapter(

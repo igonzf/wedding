@@ -825,7 +825,10 @@ class MyCustomFormState extends State<MyCustomForm> {
                               elevation: 0,
                               shape: RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(20.0))),
-                          child: const Text('CONFIRMAR')))
+                          child: const Text(
+                            'CONFIRMAR',
+                            selectionColor: Colors.white,
+                          )))
                 ],
               ),
             ),
