@@ -100,7 +100,7 @@ class _InvitationPageState extends State<InvitationPage>
   }
 
   void loadAudio() async {
-    await audioPlayer.setSource(DeviceFileSource('assets/music.mp3'));
+    await audioPlayer.setSource(DeviceFileSource('./assets/assets/music.mp3'));
     audioPlayer.setReleaseMode(
         ReleaseMode.loop); // Para reproducir en bucle si es necesario
     audioPlayer.seek(Duration(
@@ -108,7 +108,7 @@ class _InvitationPageState extends State<InvitationPage>
             1)); // Asegúrate de que la reproducción comience desde el principio
     audioPlayer.setVolume(1.0); // Ajusta el volumen según sea necesario
     audioPlayer.play(DeviceFileSource(
-        'assets/music.mp3')); // Note: 'play' is used to start playing immediately, no need for 'setUrl' in this case
+        './assets/assets/music.mp3')); // Note: 'play' is used to start playing immediately, no need for 'setUrl' in this case
   }
 
   void playPause() {
