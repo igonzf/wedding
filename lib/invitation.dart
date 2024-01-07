@@ -219,12 +219,12 @@ class _InvitationPageState extends State<InvitationPage>
                   ? Align(
                       alignment: Alignment.bottomCenter,
                       child: Opacity(
-                          opacity: 0.2,
+                          opacity: 0.5,
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
-                              Lottie.asset(Icons8.down_arrow_win10,
-                                  height: screenHeight * 0.09)
+                              Lottie.asset('assets/animations/slide.json',
+                                  height: screenHeight * 0.1)
                             ],
                           )))
                   : Align(),
@@ -458,7 +458,7 @@ class _InvitationPageState extends State<InvitationPage>
                             mainAxisAlignment: MainAxisAlignment.end,
                             children: [
                               Text(
-                                '19:00h',
+                                '19:00h\nViernes',
                                 style: GoogleFonts.cormorantGaramond(
                                   fontSize: screenHeight * 0.03,
                                   fontWeight: FontWeight.w400,
@@ -815,17 +815,13 @@ class _InvitationPageState extends State<InvitationPage>
                                         ),
                                         onPressed: () {
                                           isClicked = !isClicked;
-                                          /* scrollController.animateTo(
-                                              scrollController.offset +
-                                                  positionform.dy * 2,
-                                              duration:
-                                                  Duration(milliseconds: 1000),
-                                              curve: Curves.ease); */
                                         },
                                         child: Text(
                                           'CONFIRMAR ASISTENCIA ',
                                           style: GoogleFonts.cormorantGaramond(
-                                              color: Color(0xff69491e)),
+                                              color: Color(0xff69491e),
+                                              fontSize: screenHeight * 0.03),
+                                          textAlign: TextAlign.center,
                                         ),
                                       )
                                     ],
