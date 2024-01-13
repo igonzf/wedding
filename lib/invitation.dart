@@ -751,7 +751,7 @@ class _InvitationPageState extends State<InvitationPage>
                   location: "Grulleros",
                   image: "assets/Preboda.jpg",
                   url:
-                      'https://www.google.es/maps/place/Tr.%C2%AA+Estanco,+382,+24346+Vega+de+Infanzones,+Le%C3%B3n/@42.5020592,-5.54997,54m/data=!3m1!1e3!4m17!1m10!4m9!1m3!2m2!1d-5.5498922!2d42.5022416!1m3!2m2!1d-5.5499008!2d42.502223!3e2!3m5!1s0xd378f4e49a18dab:0x384413e23ed0dc08!8m2!3d42.5021785!4d-5.5498407!16s%2Fg%2F11c27fcm05?entry=ttu',
+                      'https://www.google.com/maps/dir//42.507344,-5.553421/@42.507344,-5.5547085,18z?entry=ttu',
                 ),
                 SizedBox(height: screenHeight * 0.02),
                 const MyCustomPlace(
