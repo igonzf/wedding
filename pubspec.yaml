@@ -105,6 +105,8 @@ flutter:
     - assets/sobreconsello.png
     - assets/sobreconsello1.png
     - assets/pruebaaa.png
+    - assets/sobrealargado.png
+    - assets/sobresello.png
   fonts:
       - family: Cinzel
         fonts:
