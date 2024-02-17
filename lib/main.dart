@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:invitacion/invitation.dart';
-import 'package:flutter_statusbarcolor_ns/flutter_statusbarcolor_ns.dart';
 
 void main() {
   runApp(const MyApp());
@@ -13,7 +12,6 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     MaterialColor myColor = _createMaterialColor(Colors.brown);
-    FlutterStatusbarcolor.setStatusBarColor(Colors.white);
     return MaterialApp(
       title: 'Invitación Bárbara y Santi',
       theme: ThemeData(

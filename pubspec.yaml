@@ -79,35 +79,18 @@ flutter:
   # the material Icons class.
   uses-material-design: true
   assets:
-    - assets/nombrebackground.jpg
-    - assets/nombrebackground2.jpg
     - assets/background.jpg
-    - assets/cuenta.jpg
-    - assets/cuenta1.jpg
-    - assets/catedral.jpeg
     - assets/cigarral.jpg
-    - assets/Preboda.jpg
-    - assets/cuenta2.jpg
-    - assets/cuenta3.jpg
     - assets/cocktailicon.png
     - assets/fiestaicon.png
     - assets/iglesiaicon.png
     - assets/restauranteicon.png
-    - assets/sello.png
-    - assets/sobrecerrado.jpeg
-    - assets/sobre.png
     - assets/music.mp3
     - assets/animations/slide.json
-    - assets/sobre1.jpg
-    - assets/cuentaatrás.png
-    - assets/catedral1.jpeg
     - assets/catedral2.jpeg
     - assets/preboda1.jpeg
-    - assets/sobreconsello.png
-    - assets/sobreconsello1.png
-    - assets/pruebaaa.png
-    - assets/sobrealargado.png
     - assets/sobresello.png
+    - assets/cuentaatrasdefinitiva.png
   fonts:
       - family: Cinzel
         fonts:

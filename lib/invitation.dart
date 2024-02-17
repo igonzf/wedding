@@ -310,7 +310,7 @@ class _InvitationPageState extends State<InvitationPage>
                     width: screenWidth,
                     child: Stack(children: <Widget>[
                       Image.asset(
-                        'assets/cuentaatrás.png',
+                        'assets/cuentaatrasdefinitiva.png',
                         width: double.infinity,
                         fit: BoxFit.cover,
                       ),
