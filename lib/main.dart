@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:invitacion/invitation.dart';
+import 'package:flutter_statusbarcolor_ns/flutter_statusbarcolor_ns.dart';
 
 void main() {
   runApp(const MyApp());
@@ -11,13 +12,12 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    MaterialColor myColor = _createMaterialColor(const Color(0xff9ab4ac));
-
+    MaterialColor myColor = _createMaterialColor(Colors.brown);
+    FlutterStatusbarcolor.setStatusBarColor(Colors.white);
     return MaterialApp(
       title: 'Invitación Bárbara y Santi',
       theme: ThemeData(
-          primaryColor:
-              const Color(0xff9ab4ac), // Establece el color principal de la app
+          //primaryColor: Colors.white, // Establece el color principal de la app
           primarySwatch: myColor),
       home: const MyHomePage(title: 'Invitación Bárbara y Santi'),
     );

@@ -753,7 +753,7 @@ class _InvitationPageState extends State<InvitationPage>
                   location: "Grulleros",
                   image: "assets/preboda1.jpeg",
                   url:
-                      'https://www.google.com/maps/dir//42.507344,-5.553421/@42.507344,-5.5547085,18z?entry=ttu',
+                      'https://www.google.es/maps/place/Tr.%C2%AA+Estanco,+382,+24346+Vega+de+Infanzones,+Le%C3%B3n/@42.5021784,-5.5547116,17z/data=!3m1!4b1!4m14!1m7!3m6!1s0xd378f4c23befd67:0x447744725b26eb63!2sC.+Real,+61,+24346+Vega+de+Infanzones,+Le%C3%B3n!3b1!8m2!3d42.4991532!4d-5.5468437!3m5!1s0xd378f4e49a18dab:0x384413e23ed0dc08!8m2!3d42.5021785!4d-5.5498407!16s%2Fg%2F11c27fcm05?entry=ttu',
                 ),
                 SizedBox(height: screenHeight * 0.02),
                 const MyCustomPlace(
@@ -800,7 +800,7 @@ class _InvitationPageState extends State<InvitationPage>
                                       child: Column(
                                     children: [
                                       Text(
-                                        '¡Queremos compartir este día tan especial contigo!\n\nPor favor, dedica unos minutos para confirmar tu asistencia.\nHaz clic en el botón y completa tus datos.\n\n¡Esperamos verte en la boda!',
+                                        '¡Queremos compartir este día tan especial con vosotros!\n\nPor favor, dedicad unos minutos para confirmar vuestra asistencia.\nHaz clic en el botón y completa tus datos.\n\n¡Esperamos veros en la boda!',
                                         style: GoogleFonts.cormorantGaramond(
                                             fontSize: screenHeight * 0.03,
                                             fontWeight: FontWeight.w400,
