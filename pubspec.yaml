@@ -97,6 +97,14 @@ flutter:
     - assets/sobre.png
     - assets/music.mp3
     - assets/animations/slide.json
+    - assets/sobre1.jpg
+    - assets/cuentaatrás.png
+    - assets/catedral1.jpeg
+    - assets/catedral2.jpeg
+    - assets/preboda1.jpeg
+    - assets/sobreconsello.png
+    - assets/sobreconsello1.png
+    - assets/pruebaaa.png
   fonts:
       - family: Cinzel
         fonts:

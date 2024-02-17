@@ -232,7 +232,7 @@ class _InvitationPageState extends State<InvitationPage>
           )),
           SliverToBoxAdapter(
             child: Container(
-                height: screenHeight * 0.3,
+                height: screenHeight * 0.4,
                 color: const Color(0xff9ab4ac),
                 child: VisibilityDetector(
                     key: Key('frasecita'),
@@ -255,15 +255,15 @@ class _InvitationPageState extends State<InvitationPage>
                       });
                     },
                     child: Padding(
-                        padding: const EdgeInsets.all(16.0),
+                        padding: const EdgeInsets.all(18.0),
                         child: Center(
                             child: Column(
                           children: [
                             const Spacer(),
                             Text(
-                              'O amor é como o vento, non se ve, pero sérvese para guiar o barco da vida.',
+                              'La cuenta atrás ha comenzado para el día más importante de nuestras vidas. Queremos que sea un día lleno de risas, alegrías, amor y recuerdos inolvidables, por eso necesitamos que nos acompañéis para que nuestro día sea aún más especial.',
                               style: GoogleFonts.cormorantGaramond(
-                                  fontSize: screenHeight * 0.03,
+                                  fontSize: screenHeight * 0.023,
                                   fontWeight: FontWeight.w400,
                                   color: Colors.white),
                               textAlign: TextAlign.center,
@@ -273,12 +273,14 @@ class _InvitationPageState extends State<InvitationPage>
                                     onInit: (c) => _fraseAnimation = c)
                                 .scale(duration: Duration(seconds: 2)),
                             const Spacer(),
+                            //SizedBox(height: screenHeight * 0.01),
                             const Icon(
                               CupertinoIcons.heart_fill,
                               color: Colors.white,
                               size: 15,
                             ),
-                            const Spacer()
+                            //const Spacer()
+                            SizedBox(height: screenHeight * 0.03)
                           ],
                         ))))),
           ),
@@ -308,7 +310,7 @@ class _InvitationPageState extends State<InvitationPage>
                     width: screenWidth,
                     child: Stack(children: <Widget>[
                       Image.asset(
-                        'assets/cuenta3.jpg',
+                        'assets/cuentaatrás.png',
                         width: double.infinity,
                         fit: BoxFit.cover,
                       ),
@@ -749,7 +751,7 @@ class _InvitationPageState extends State<InvitationPage>
                   namePlace: "Casa de la novia",
                   hour: "Viernes 21 a las 19:00h",
                   location: "Grulleros",
-                  image: "assets/Preboda.jpg",
+                  image: "assets/preboda1.jpeg",
                   url:
                       'https://www.google.com/maps/dir//42.507344,-5.553421/@42.507344,-5.5547085,18z?entry=ttu',
                 ),
@@ -759,7 +761,7 @@ class _InvitationPageState extends State<InvitationPage>
                   namePlace: "Catedral de Léon",
                   hour: "13:00h\n(llegar a las 12:45h\ny esperar dentro)",
                   location: "Calle Ancha",
-                  image: "assets/catedral.jpeg",
+                  image: "assets/catedral2.jpeg",
                   url:
                       'https://www.google.com/maps/place/Catedral+de+Le%C3%B3n/@42.5994383,-5.5671632,15z/data=!4m6!3m5!1s0xd379a9b863a0fab:0x13727554f4d5e06a!8m2!3d42.5994383!4d-5.5671632!16zL20vMDc3MF9z?entry=ttu',
                 ),
