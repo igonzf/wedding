@@ -687,7 +687,7 @@ class _InvitationPageState extends State<InvitationPage>
                             mainAxisAlignment: MainAxisAlignment.end,
                             children: [
                               Text(
-                                '22:00h',
+                                '20:00h',
                                 style: GoogleFonts.cormorantGaramond(
                                     fontSize: screenHeight * 0.03,
                                     fontWeight: FontWeight.w400,
