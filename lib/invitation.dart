@@ -246,9 +246,6 @@ class _InvitationPageState extends State<InvitationPage>
                         var visiblePercentage =
                             visibilityInfo.visibleFraction * 100;
 
-                        print(
-                            'Widget ${visibilityInfo.key} is ${visiblePercentage}% visible');
-
                         if (visiblePercentage == 100) {
                           _fraseAnimation?.forward();
                         }
@@ -296,9 +293,6 @@ class _InvitationPageState extends State<InvitationPage>
                     // It will show how much percentage the widget is visible
                     var visiblePercentageCuenta =
                         visibilityInfoCuenta.visibleFraction * 100;
-
-                    print(
-                        'Widget ${visibilityInfoCuenta.key} is ${visiblePercentageCuenta}% visible');
 
                     if (visiblePercentageCuenta == 100) {
                       _cuentaAnimation?.forward();
