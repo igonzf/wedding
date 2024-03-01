@@ -117,12 +117,24 @@ class MyCustomFormState extends State<MyCustomForm> {
                   Align(
                       alignment: Alignment.centerLeft,
                       child: Container(
-                          child: Text(
-                        '¿Necesitas autobús?',
-                        style: GoogleFonts.cormorantGaramond(
-                            fontSize: screenHeight * 0.03,
-                            fontWeight: FontWeight.w400),
-                        textAlign: TextAlign.left,
+                          child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            '¿Necesitas autobús?',
+                            style: GoogleFonts.cormorantGaramond(
+                                fontSize: screenHeight * 0.03,
+                                fontWeight: FontWeight.w400),
+                            textAlign: TextAlign.left,
+                          ),
+                          Text(
+                            'Catedral - El Cigarral 14:30 h.\nEl Cigarral - Catedral 1:00 h.',
+                            style: GoogleFonts.cormorantGaramond(
+                                fontSize: screenHeight * 0.022,
+                                fontWeight: FontWeight.w400),
+                            textAlign: TextAlign.left,
+                          )
+                        ],
                       ))),
                   Row(children: [
                     Expanded(
@@ -328,12 +340,25 @@ class MyCustomFormState extends State<MyCustomForm> {
                               Align(
                                   alignment: Alignment.centerLeft,
                                   child: Container(
-                                      child: Text(
-                                    '¿Necesitas autobús?',
-                                    style: GoogleFonts.cormorantGaramond(
-                                        fontSize: screenHeight * 0.03,
-                                        fontWeight: FontWeight.w400),
-                                    textAlign: TextAlign.left,
+                                      child: Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      Text(
+                                        '¿Necesitas autobús?',
+                                        style: GoogleFonts.cormorantGaramond(
+                                            fontSize: screenHeight * 0.03,
+                                            fontWeight: FontWeight.w400),
+                                        textAlign: TextAlign.left,
+                                      ),
+                                      Text(
+                                        'Catedral - El Cigarral 14:30 h.\nEl Cigarral - Catedral 1:00 h.',
+                                        style: GoogleFonts.cormorantGaramond(
+                                            fontSize: screenHeight * 0.022,
+                                            fontWeight: FontWeight.w400),
+                                        textAlign: TextAlign.left,
+                                      )
+                                    ],
                                   ))),
                               Row(children: [
                                 Expanded(
@@ -473,12 +498,25 @@ class MyCustomFormState extends State<MyCustomForm> {
                               Align(
                                   alignment: Alignment.centerLeft,
                                   child: Container(
-                                      child: Text(
-                                    '¿Necesitas autobús?',
-                                    style: GoogleFonts.cormorantGaramond(
-                                        fontSize: screenHeight * 0.03,
-                                        fontWeight: FontWeight.w400),
-                                    textAlign: TextAlign.left,
+                                      child: Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      Text(
+                                        '¿Necesitas autobús?',
+                                        style: GoogleFonts.cormorantGaramond(
+                                            fontSize: screenHeight * 0.03,
+                                            fontWeight: FontWeight.w400),
+                                        textAlign: TextAlign.left,
+                                      ),
+                                      Text(
+                                        'Catedral - El Cigarral 14:30 h.\nEl Cigarral - Catedral 1:00 h.',
+                                        style: GoogleFonts.cormorantGaramond(
+                                            fontSize: screenHeight * 0.022,
+                                            fontWeight: FontWeight.w400),
+                                        textAlign: TextAlign.left,
+                                      )
+                                    ],
                                   ))),
                               Row(children: [
                                 Expanded(
@@ -618,12 +656,25 @@ class MyCustomFormState extends State<MyCustomForm> {
                               Align(
                                   alignment: Alignment.centerLeft,
                                   child: Container(
-                                      child: Text(
-                                    '¿Necesitas autobús?',
-                                    style: GoogleFonts.cormorantGaramond(
-                                        fontSize: screenHeight * 0.03,
-                                        fontWeight: FontWeight.w400),
-                                    textAlign: TextAlign.left,
+                                      child: Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      Text(
+                                        '¿Necesitas autobús?',
+                                        style: GoogleFonts.cormorantGaramond(
+                                            fontSize: screenHeight * 0.03,
+                                            fontWeight: FontWeight.w400),
+                                        textAlign: TextAlign.left,
+                                      ),
+                                      Text(
+                                        'Catedral - El Cigarral 14:30 h.\nEl Cigarral - Catedral 1:00 h.',
+                                        style: GoogleFonts.cormorantGaramond(
+                                            fontSize: screenHeight * 0.022,
+                                            fontWeight: FontWeight.w400),
+                                        textAlign: TextAlign.left,
+                                      )
+                                    ],
                                   ))),
                               Row(children: [
                                 Expanded(

@@ -90,12 +90,15 @@ class MyCustomPlaceState extends State<MyCustomPlace> {
                   textAlign: TextAlign.center,
                 ),
                 SizedBox(height: screenHeight * 0.01),
-                Text(
-                  widget.location,
-                  style: GoogleFonts.cormorantGaramond(
-                      fontSize: screenHeight * 0.025,
-                      fontWeight: FontWeight.w400),
-                  textAlign: TextAlign.center,
+                Padding(
+                  padding: EdgeInsets.all(16.0),
+                  child: Text(
+                    widget.location,
+                    style: GoogleFonts.cormorantGaramond(
+                        fontSize: screenHeight * 0.025,
+                        fontWeight: FontWeight.w400),
+                    textAlign: TextAlign.center,
+                  ),
                 ),
                 SizedBox(height: screenHeight * 0.03),
                 ElevatedButton(

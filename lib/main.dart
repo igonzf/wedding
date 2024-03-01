@@ -16,7 +16,10 @@ class MyApp extends StatelessWidget {
       title: 'Invitación Bárbara y Santi',
       theme: ThemeData(
           //primaryColor: Colors.white, // Establece el color principal de la app
-          primarySwatch: myColor),
+          primarySwatch: myColor,
+          radioTheme: RadioThemeData(
+              fillColor: MaterialStateProperty.resolveWith<Color>(
+                  (states) => Color(0xff69491e)))),
       home: const MyHomePage(title: 'Invitación Bárbara y Santi'),
     );
   }

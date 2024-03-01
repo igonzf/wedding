@@ -257,24 +257,27 @@ class _InvitationPageState extends State<InvitationPage>
                             child: Column(
                           children: [
                             const Spacer(),
-                            Text(
-                              'La cuenta atrás ha comenzado para el día más importante de nuestras vidas. Queremos que sea un día lleno de risas, alegrías, amor y recuerdos inolvidables, por eso necesitamos que nos acompañéis para que nuestro día sea aún más especial.',
-                              style: GoogleFonts.cormorantGaramond(
-                                  fontSize: screenHeight * 0.023,
-                                  fontWeight: FontWeight.w400,
-                                  color: Colors.white),
-                              textAlign: TextAlign.center,
-                            )
-                                .animate(
-                                    autoPlay: false,
-                                    onInit: (c) => _fraseAnimation = c)
-                                .scale(duration: Duration(seconds: 2)),
+                            Padding(
+                              padding: EdgeInsets.only(left: 40.0, right: 40.0),
+                              child: Text(
+                                'La cuenta atrás ha comenzado para el día más importante de nuestras vidas. Queremos que esté lleno de risas, alegrías, amor y recuerdos inolvidables, por eso necesitamos que nos acompañéis para que nuestra boda sea aún más especial.',
+                                style: GoogleFonts.cormorantGaramond(
+                                    fontSize: screenHeight * 0.023,
+                                    fontWeight: FontWeight.w400,
+                                    color: Colors.white),
+                                textAlign: TextAlign.center,
+                              )
+                                  .animate(
+                                      autoPlay: false,
+                                      onInit: (c) => _fraseAnimation = c)
+                                  .scale(duration: Duration(seconds: 2)),
+                            ),
                             const Spacer(),
                             //SizedBox(height: screenHeight * 0.01),
                             const Icon(
                               CupertinoIcons.heart_fill,
                               color: Colors.white,
-                              size: 15,
+                              size: 20,
                             ),
                             //const Spacer()
                             SizedBox(height: screenHeight * 0.03)
@@ -743,7 +746,7 @@ class _InvitationPageState extends State<InvitationPage>
                 const MyCustomPlace(
                   event: "Preboda",
                   namePlace: "Casa de la novia",
-                  hour: "Viernes 21 a las 19:00h",
+                  hour: "Viernes 21 a las 19:00 h.",
                   location: "Grulleros",
                   image: "assets/preboda1.jpeg",
                   url:
@@ -753,8 +756,9 @@ class _InvitationPageState extends State<InvitationPage>
                 const MyCustomPlace(
                   event: "Ceremonia Religiosa",
                   namePlace: "Catedral de Léon",
-                  hour: "13:00h\n(llegar a las 12:45h\ny esperar dentro)",
-                  location: "Calle Ancha",
+                  hour: "13:00 h.",
+                  location:
+                      "Se recomienda llegar a las 12:45 h. y esperar dentro a los novios",
                   image: "assets/catedral2.jpeg",
                   url:
                       'https://www.google.com/maps/place/Catedral+de+Le%C3%B3n/@42.5994383,-5.5671632,15z/data=!4m6!3m5!1s0xd379a9b863a0fab:0x13727554f4d5e06a!8m2!3d42.5994383!4d-5.5671632!16zL20vMDc3MF9z?entry=ttu',
@@ -763,8 +767,9 @@ class _InvitationPageState extends State<InvitationPage>
                 const MyCustomPlace(
                   event: "Celebración",
                   namePlace: "El Cigarral",
-                  hour: "14:45h",
-                  location: "Cembranos",
+                  hour: "14:45 h.",
+                  location:
+                      "El autobús os llevará al restaurante desde la Catedral y os traerá de regreso",
                   image: "assets/cigarral.jpg",
                   url:
                       'https://www.google.com/maps/place/El+Cigarral+de+Cembranos/@42.4797123,-5.5945828,17z/data=!3m1!4b1!4m6!3m5!1s0xd3786aa8c869f47:0x691a14437d182704!8m2!3d42.4797124!4d-5.5897119!16s%2Fg%2F1z44b28v9?entry=ttu',
