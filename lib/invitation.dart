@@ -613,7 +613,7 @@ class _InvitationPageState extends State<InvitationPage>
                             mainAxisAlignment: MainAxisAlignment.end,
                             children: [
                               Text(
-                                '14:45h',
+                                '15:15h',
                                 style: GoogleFonts.cormorantGaramond(
                                     fontSize: screenHeight * 0.03,
                                     fontWeight: FontWeight.w400,
@@ -737,7 +737,7 @@ class _InvitationPageState extends State<InvitationPage>
             child: Column(
               children: [
                 SizedBox(height: screenHeight * 0.05),
-                Text('Dónde y Cuándo',
+                Text('Dónde y cuándo',
                     style: GoogleFonts.cormorantGaramond(
                         fontSize: screenHeight * 0.05,
                         fontWeight: FontWeight.w400),
