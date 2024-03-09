@@ -3,6 +3,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:invitacion/model/feedback.dart';
 import 'package:invitacion/controller/form_controller.dart';
 import 'package:flutter_number_picker/flutter_number_picker.dart';
+import 'dart:io';
 
 // Create a Form widget.
 class MyCustomForm extends StatefulWidget {
@@ -21,6 +22,7 @@ class MyCustomFormState extends State<MyCustomForm> {
   //
   // Note: This is a GlobalKey<FormState>,
   // not a GlobalKey<MyCustomFormState>.
+  final FormController formController = FormController();
   final _formKey = GlobalKey<FormState>();
   bool? _isPrebodaSelected;
   bool? _isBusSelected;
@@ -40,6 +42,12 @@ class MyCustomFormState extends State<MyCustomForm> {
   final _foodController2 = TextEditingController();
   final _nameController3 = TextEditingController();
   final _foodController3 = TextEditingController();
+  List<TextEditingController> _nameControllers = [];
+  List<TextEditingController> _foodControllers = [];
+  List<bool?> _busControllers = [];
+  List<bool?> _prebodaControllers = [];
+  int _successfulFormsCount = 0;
+  int _totalFormsCount = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -94,7 +102,7 @@ class MyCustomFormState extends State<MyCustomForm> {
                       alignment: Alignment.centerLeft,
                       child: Container(
                           child: Text(
-                        'Si tienes alguna alergia/intolerancia o eres vegano/vegetariano, por favor indica el tipo de alergia/intolerancia o dieta.',
+                        'Si tienes alguna alergia/intolerancia o eres vegano/vegetariano, por favor indica el tipo de alergia/intolerancia o dieta',
                         style: GoogleFonts.cormorantGaramond(
                             fontSize: screenHeight * 0.03,
                             fontWeight: FontWeight.w400),
@@ -317,7 +325,7 @@ class MyCustomFormState extends State<MyCustomForm> {
                                   alignment: Alignment.centerLeft,
                                   child: Container(
                                       child: Text(
-                                    'Si tienes alguna alergia/intolerancia o eres vegano/vegetariano, por favor indica el tipo de alergia/intolerancia o dieta.',
+                                    'Si tienes alguna alergia/intolerancia o eres vegano/vegetariano, por favor indica el tipo de alergia/intolerancia o dieta',
                                     style: GoogleFonts.cormorantGaramond(
                                         fontSize: screenHeight * 0.03,
                                         fontWeight: FontWeight.w400),
@@ -475,7 +483,7 @@ class MyCustomFormState extends State<MyCustomForm> {
                                   alignment: Alignment.centerLeft,
                                   child: Container(
                                       child: Text(
-                                    'Si tienes alguna alergia/intolerancia o eres vegano/vegetariano, por favor indica el tipo de alergia/intolerancia o dieta.',
+                                    'Si tienes alguna alergia/intolerancia o eres vegano/vegetariano, por favor indica el tipo de alergia/intolerancia o dieta',
                                     style: GoogleFonts.cormorantGaramond(
                                         fontSize: screenHeight * 0.03,
                                         fontWeight: FontWeight.w400),
@@ -633,7 +641,7 @@ class MyCustomFormState extends State<MyCustomForm> {
                                   alignment: Alignment.centerLeft,
                                   child: Container(
                                       child: Text(
-                                    'Si tienes alguna alergia/intolerancia o eres vegano/vegetariano, por favor indica el tipo de alergia/intolerancia o dieta.',
+                                    'Si tienes alguna alergia/intolerancia o eres vegano/vegetariano, por favor indica el tipo de alergia/intolerancia o dieta',
                                     style: GoogleFonts.cormorantGaramond(
                                         fontSize: screenHeight * 0.03,
                                         fontWeight: FontWeight.w400),
@@ -744,130 +752,55 @@ class MyCustomFormState extends State<MyCustomForm> {
                           ))),
                   Center(
                       child: ElevatedButton(
-                          onPressed: () {
+                          onPressed: () async {
                             // Validate returns true if the form is valid, or false otherwise.
+                            _nameControllers = [
+                              _nameController,
+                              _nameController1,
+                              _nameController2,
+                              _nameController3
+                            ];
+                            _foodControllers = [
+                              _foodController,
+                              _foodController1,
+                              _foodController2,
+                              _foodController3
+                            ];
+                            _busControllers = [
+                              _isBusSelected,
+                              _isBusSelected1,
+                              _isBusSelected2,
+                              _isBusSelected3
+                            ];
+                            _prebodaControllers = [
+                              _isPrebodaSelected,
+                              _isPrebodaSelected1,
+                              _isPrebodaSelected2,
+                              _isBusSelected3
+                            ];
+
+                            _successfulFormsCount = 0;
+                            _totalFormsCount =
+                                _isAcompanianteSelected ? numA + 1 : 1;
+
                             if (_formKey.currentState!.validate() &&
                                 _isPrebodaSelected != null &&
                                 _isBusSelected != null) {
-                              // If the form is valid, display a snackbar. In the real world,
-                              // you'd often call a server or save the information in a database.
-                              print("Nombre: ${_nameController.text}");
-                              print("Dieta: ${_foodController.text}");
-                              print("Bus: $_isBusSelected");
-                              print("Preboda: $_isPrebodaSelected");
-                              FeedbackForm feedbackForm = FeedbackForm(
-                                  _nameController.text,
-                                  _foodController.text,
-                                  _isBusSelected.toString(),
-                                  _isPrebodaSelected.toString());
-                              FormController formController = FormController();
-
-                              ScaffoldMessenger.of(context).showSnackBar(
-                                const SnackBar(
-                                    content: Text('Procesando confirmación')),
-                              );
-
-                              formController.submitForm(feedbackForm,
-                                  (String response) {
-                                print("Response: $response");
-                                if (response == FormController.STATUS_SUCCESS) {
-                                  ScaffoldMessenger.of(context).showSnackBar(
-                                    const SnackBar(
-                                        content: Text(
-                                            'Confirmación realizada correctamente')),
-                                  );
-                                  _nameController.clear();
-                                  _foodController.clear();
-                                  _isBusSelected = null;
-                                  _isPrebodaSelected = null;
-                                  widget.testFunction(false);
-                                } else {
-                                  ScaffoldMessenger.of(context).showSnackBar(
-                                    const SnackBar(
-                                        content: Text(
-                                            'Ha ocurrido un error, inténtalo de nuevo')),
-                                  );
-                                }
-                              });
-
-                              //ACOMPAÑANTE 1
                               if (_isAcompanianteSelected) {
-                                var a1 = [
-                                  _nameController1.text,
-                                  _foodController1.text,
-                                  _isBusSelected1.toString(),
-                                  _isPrebodaSelected1.toString()
-                                ];
-                                var a2 = [
-                                  _nameController2.text,
-                                  _foodController2.text,
-                                  _isBusSelected2.toString(),
-                                  _isPrebodaSelected2.toString()
-                                ];
-                                var a3 = [
-                                  _nameController3.text,
-                                  _foodController3.text,
-                                  _isBusSelected3.toString(),
-                                  _isPrebodaSelected3.toString()
-                                ];
-                                var lista = [a1, a2, a3];
-
-                                var controllers = [
-                                  _nameController1,
-                                  _nameController2,
-                                  _nameController3,
-                                  _foodController1,
-                                  _foodController2,
-                                  _foodController3
-                                ];
-                                var selectors = [
-                                  _isBusSelected1,
-                                  _isBusSelected2,
-                                  _isBusSelected3,
-                                  _isPrebodaSelected1,
-                                  _isPrebodaSelected2,
-                                  _isPrebodaSelected3
-                                ];
-
-                                for (var i = 1; i <= numA; i++) {
-                                  var person = lista[i - 1];
-                                  print("Nombre: ${person[0]}");
-                                  print("Dieta: ${person[1]}");
-                                  print("Bus: ${person[2]}");
-                                  print("Preboda: ${person[3]}");
-
-                                  FeedbackForm feedbackForm = FeedbackForm(
-                                      person[0],
-                                      person[1],
-                                      person[2],
-                                      person[3]);
-
-                                  formController.submitForm(feedbackForm,
-                                      (String response) {
-                                    print("Response: $response");
-                                    if (response ==
-                                        FormController.STATUS_SUCCESS) {
-                                      ScaffoldMessenger.of(context)
-                                          .showSnackBar(
-                                        const SnackBar(
-                                            content: Text(
-                                                'Confirmación con acompañantes realizada correctamente')),
-                                      );
-                                      widget.testFunction(false);
-                                    } else {
-                                      ScaffoldMessenger.of(context)
-                                          .showSnackBar(
-                                        const SnackBar(
-                                            content: Text(
-                                                'Ha ocurrido un error, inténtalo de nuevo')),
-                                      );
-                                    }
-                                  });
-                                  for (var element in controllers) {
-                                    (element.clear());
-                                  }
-                                  _isAcompanianteSelected = false;
+                                for (var i = 0; i <= numA; i++) {
+                                  _submitFeedbackForm(
+                                      _nameControllers[i].text,
+                                      _foodControllers[i].text,
+                                      _busControllers[i].toString(),
+                                      _prebodaControllers[i].toString());
+                                  await Future.delayed(Duration(seconds: 5));
                                 }
+                              } else {
+                                _submitFeedbackForm(
+                                    _nameControllers[0].text,
+                                    _foodControllers[0].text,
+                                    _busControllers[0].toString(),
+                                    _prebodaControllers[0].toString());
                               }
                             }
                           },
@@ -887,6 +820,56 @@ class MyCustomFormState extends State<MyCustomForm> {
             ),
           ),
         ));
+  }
+
+  void _submitFeedbackForm(String name, String food, String isBusSelected,
+      String isPrebodaSelected) async {
+    FeedbackForm feedbackForm =
+        FeedbackForm(name, food, isBusSelected, isPrebodaSelected);
+
+    formController.submitForm(feedbackForm, (String response) {
+      if (response == FormController.STATUS_SUCCESS) {
+        ScaffoldMessenger.of(context)
+            .showSnackBar(
+              SnackBar(
+                  content:
+                      Text('Confirmación de $name realizada correctamente')),
+            )
+            .closed
+            .then((reason) {
+          _successfulFormsCount++;
+          if (_successfulFormsCount == _totalFormsCount) {
+            _clearControllers(); // Llama a _clearControllers solo si todos los formularios han tenido éxito
+          }
+        });
+      } else {
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(
+              content: Text('Ha ocurrido un error, inténtalo de nuevo')),
+        );
+      }
+    });
+  }
+
+  void _clearControllers() {
+    _nameController.clear();
+    _nameController1.clear();
+    _nameController2.clear();
+    _nameController3.clear();
+    _foodController.clear();
+    _foodController1.clear();
+    _foodController2.clear();
+    _foodController3.clear();
+    _isBusSelected = null;
+    _isBusSelected1 = null;
+    _isBusSelected2 = null;
+    _isBusSelected3 = null;
+    _isPrebodaSelected = null;
+    _isPrebodaSelected1 = null;
+    _isPrebodaSelected2 = null;
+    _isPrebodaSelected3 = null;
+    _isAcompanianteSelected = false;
+    widget.testFunction(false);
   }
 
   void onChanged(num value) {

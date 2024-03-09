@@ -457,7 +457,7 @@ class _InvitationPageState extends State<InvitationPage>
                             mainAxisAlignment: MainAxisAlignment.end,
                             children: [
                               Text(
-                                '19:00h\nViernes',
+                                '19:00 h.\nViernes',
                                 style: GoogleFonts.cormorantGaramond(
                                   fontSize: screenHeight * 0.03,
                                   fontWeight: FontWeight.w400,
@@ -531,7 +531,7 @@ class _InvitationPageState extends State<InvitationPage>
                             mainAxisAlignment: MainAxisAlignment.end,
                             children: [
                               Text(
-                                '13:00h',
+                                '13:00 h.',
                                 style: GoogleFonts.cormorantGaramond(
                                     fontSize: screenHeight * 0.03,
                                     fontWeight: FontWeight.w400,
@@ -613,7 +613,7 @@ class _InvitationPageState extends State<InvitationPage>
                             mainAxisAlignment: MainAxisAlignment.end,
                             children: [
                               Text(
-                                '15:15h',
+                                '15:15 h.',
                                 style: GoogleFonts.cormorantGaramond(
                                     fontSize: screenHeight * 0.03,
                                     fontWeight: FontWeight.w400,
@@ -684,7 +684,7 @@ class _InvitationPageState extends State<InvitationPage>
                             mainAxisAlignment: MainAxisAlignment.end,
                             children: [
                               Text(
-                                '20:00h',
+                                '20:00 h.',
                                 style: GoogleFonts.cormorantGaramond(
                                     fontSize: screenHeight * 0.03,
                                     fontWeight: FontWeight.w400,

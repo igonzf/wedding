@@ -33,4 +33,36 @@ class FormController {
       print(e);
     }
   }
+
+  Future<bool> _checkDataInSheet(Map<dynamic, dynamic> formdata) async {
+    // Obtén el nombre del feedbackForm
+    String nombreFormData = formdata['nombre'];
+    print('nombre: $nombreFormData');
+    bool success = false;
+
+    try {
+      http.Response response = await http.get(Uri.parse(URL));
+
+      // Verifica el estado de la respuesta
+      if (response.statusCode == 200) {
+        // La solicitud fue exitosa, puedes trabajar con los datos aquí
+        print('Respuesta exitosa: ${response.body}');
+        Map<String, dynamic> sheetData = convert.jsonDecode(response.body);
+        success = sheetData.values.any((value) {
+          // Verifica si el valor actual es igual al nombre del feedbackForm
+          return value['nombre'] == nombreFormData;
+        });
+
+        print('está el nombre en la hoja de calculo: $success');
+      } else {
+        // La solicitud no fue exitosa, maneja el error apropiadamente
+        print('Error: ${response.statusCode}');
+      }
+    } catch (e) {
+      // Ocurrió un error durante la solicitud, maneja el error apropiadamente
+      print('Error: $e');
+    }
+
+    return success;
+  }
 }
