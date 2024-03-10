@@ -750,6 +750,7 @@ class MyCustomFormState extends State<MyCustomForm> {
                               ),
                             ],
                           ))),
+
                   Center(
                       child: ElevatedButton(
                           onPressed: () async {
@@ -779,13 +780,32 @@ class MyCustomFormState extends State<MyCustomForm> {
                               _isBusSelected3
                             ];
 
+                            String bus = _validateBusSelection();
+                            String preboda = _validatePSelection();
+                            if (bus != '') {
+                              ScaffoldMessenger.of(context).showSnackBar(
+                                SnackBar(
+                                    content: Text(bus),
+                                    backgroundColor: Colors.red),
+                              );
+                            } else if (preboda != '') {
+                              ScaffoldMessenger.of(context).showSnackBar(
+                                SnackBar(
+                                  content: Text(preboda),
+                                  backgroundColor: Colors.red,
+                                ),
+                              );
+                            }
+
                             _successfulFormsCount = 0;
                             _totalFormsCount =
                                 _isAcompanianteSelected ? numA + 1 : 1;
 
                             if (_formKey.currentState!.validate() &&
                                 _isPrebodaSelected != null &&
-                                _isBusSelected != null) {
+                                _isBusSelected != null &&
+                                bus == '' &&
+                                preboda == '') {
                               if (_isAcompanianteSelected) {
                                 for (var i = 0; i <= numA; i++) {
                                   _submitFeedbackForm(
@@ -878,6 +898,38 @@ class MyCustomFormState extends State<MyCustomForm> {
         numA = value;
       });
     }
+  }
+
+  String _validateBusSelection() {
+    if (_isAcompanianteSelected) {
+      print('bus compa');
+      for (var i = 0; i <= numA; i++) {
+        if (_busControllers[i] == null) {
+          return 'Por favor, seleccione si necesita autobús.';
+        }
+      }
+    } else {
+      if (_busControllers[0] == null) {
+        return 'Por favor, seleccione si necesita autobús.';
+      }
+    }
+    return '';
+  }
+
+  String _validatePSelection() {
+    if (_isAcompanianteSelected) {
+      for (int i = 0; i <= numA; i++) {
+        if (_prebodaControllers[i] == null) {
+          return 'Por favor, seleccione si va a asistir a la preboda.';
+        }
+      }
+    } else {
+      if (_prebodaControllers[0] == null) {
+        return 'Por favor, seleccione si va a asistir a la preboda.';
+      }
+    }
+
+    return '';
   }
 }
 
