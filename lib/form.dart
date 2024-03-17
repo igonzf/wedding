@@ -777,7 +777,7 @@ class MyCustomFormState extends State<MyCustomForm> {
                               _isPrebodaSelected,
                               _isPrebodaSelected1,
                               _isPrebodaSelected2,
-                              _isBusSelected3
+                              _isPrebodaSelected3
                             ];
 
                             String bus = _validateBusSelection();
